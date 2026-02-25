@@ -2,8 +2,9 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
 
 interface EstimatorPreset {
-  category: string;
-  package: string;
+  route: string;
+  package?: string;
+  options?: string[];
 }
 
 interface EstimatorContextType {

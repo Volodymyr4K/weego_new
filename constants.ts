@@ -911,24 +911,28 @@ export const CONTENT: Record<Language, TranslationStructure> = {
         }
       ],
       capabilities: {
-        visible: [
-          { id: 'web', title: 'Web Engineering', icon: 'Globe' },
-          { id: 'design', title: 'Brutalist Design', icon: 'Layout' },
-          { id: 'backend', title: 'Backend Systems', icon: 'Database' },
-          { id: 'ecommerce', title: 'E-commerce', icon: 'ShoppingBag' }
-        ],
-        more: [
-          { id: 'devops', title: 'DevOps & Cloud', icon: 'Cloud' },
-          { id: 'integrations', title: 'Integrazioni API', icon: 'Zap' },
-          { id: 'audit', title: 'Audit & Redesign', icon: 'Search' },
-          { id: 'support', title: 'Supporto SLA', icon: 'LifeBuoy' }
+        heading: 'Inoltre possiamo aiutarti con',
+        showAllLabel: 'Mostra tutte le capacità',
+        items: [
+          { id: 'web', label: 'Web Engineering' },
+          { id: 'design', label: 'Brutalist Design' },
+          { id: 'backend', label: 'Backend Systems' },
+          { id: 'ecommerce', label: 'E-commerce' },
+          { id: 'devops', label: 'DevOps & Cloud' },
+          { id: 'integrations', label: 'Integrazioni API' },
+          { id: 'audit', label: 'Audit & Redesign' },
+          { id: 'support', label: 'Supporto SLA' }
         ]
       },
-      industries: [
-        { id: 'horeca', title: 'HoReCa', preset: { route: 'custom', package: 'pro', options: ['booking', 'menu'] } },
-        { id: 'tech', title: 'Tech & SaaS', preset: { route: 'custom', package: 'standard', options: ['api'] } },
-        { id: 'art', title: 'Art & Culture', preset: { route: 'turnkey', package: 'pro', options: ['branding'] } }
-      ]
+      industries: {
+        heading: 'Settori (esperienza)',
+        experienceLabel: 'Esperienza, non un modello unico per tutti.',
+        items: [
+          { id: 'horeca', label: 'HoReCa', preset: { route: 'custom', package: 'pro', options: ['booking', 'menu'] } },
+          { id: 'tech', label: 'Tech & SaaS', preset: { route: 'custom', package: 'standard', options: ['api'] } },
+          { id: 'art', label: 'Art & Culture', preset: { route: 'turnkey', package: 'pro', options: ['branding'] } }
+        ]
+      }
     },
     estimator: {
       heading: 'Calcolatore di Progetto',
@@ -984,27 +988,25 @@ export const CONTENT: Record<Language, TranslationStructure> = {
         }
       ],
       recommend: {
-        title: 'Consigliami',
-        questions: [
-          {
-            id: 'goal',
+        label: 'Non sei sicuro? Consigliami',
+        questions: {
+          q1: {
             text: 'Qual è il tuo obiettivo principale?',
             options: [
-              { label: 'Lancio veloce (Sito)', value: 'fast', preset: { route: 'turnkey' } },
-              { label: 'Soluzione gestita (Platform)', value: 'managed', preset: { route: 'platform' } },
-              { label: 'Sistema complesso (Custom)', value: 'complex', preset: { route: 'custom' } }
+              { label: 'Lancio veloce (Sito)', value: 'fast' },
+              { label: 'Soluzione gestita (Platform)', value: 'managed' },
+              { label: 'Sistema complesso (Custom)', value: 'complex' }
             ]
           },
-          {
-            id: 'budget',
+          q2: {
             text: 'Qual è il tuo budget indicativo?',
             options: [
-              { label: '€300 - €800', value: 'low', preset: { package: 'standard' } },
-              { label: '€800 - €2500', value: 'mid', preset: { package: 'standard' } },
-              { label: '€2500+', value: 'high', preset: { package: 'pro' } }
+              { label: '€300 - €800', value: 'low' },
+              { label: '€800 - €2500', value: 'mid' },
+              { label: '€2500+', value: 'high' }
             ]
           }
-        ]
+        }
       },
       result: {
         priceLabel: 'Prezzo stimato',
