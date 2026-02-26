@@ -1,53 +1,47 @@
 
-import React, { Suspense, lazy } from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
-import { EstimatorProvider } from './contexts/EstimatorContext';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
 import { ScrollProgress } from './components/ScrollProgress';
+import { Home } from './pages/Home';
+import { Brief } from './pages/Brief';
+import { ServiceDetail } from './pages/ServiceDetail';
 
-// Lazy load heavy components for better LCP/TBT performance
-const ServiceList = lazy(() => import('./components/ServiceList').then(module => ({ default: module.ServiceList })));
-const TrustBar = lazy(() => import('./components/TrustBar').then(module => ({ default: module.TrustBar })));
-const Estimator = lazy(() => import('./components/Estimator').then(module => ({ default: module.Estimator })));
-const FAQ = lazy(() => import('./components/FAQ').then(module => ({ default: module.FAQ })));
-const FinalCTA = lazy(() => import('./components/FinalCTA').then(module => ({ default: module.FinalCTA })));
-const Process = lazy(() => import('./components/Process').then(module => ({ default: module.Process })));
-const WorkGrid = lazy(() => import('./components/WorkGrid').then(module => ({ default: module.WorkGrid })));
-
-const SectionLoader = () => (
-    <div className="w-full h-96 flex items-center justify-center bg-weego-black">
-        <div className="w-12 h-12 border-2 border-weego-gray border-t-weego-lime rounded-full animate-spin" />
-    </div>
-);
+// Scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const App: React.FC = () => {
   return (
     <LanguageProvider>
-      <EstimatorProvider>
+      <BrowserRouter>
+        <ScrollToTop />
         <div className="bg-weego-black min-h-screen selection:bg-weego-lime selection:text-weego-black">
           <div className="opacity-100 transition-opacity duration-1000">
               <CustomCursor />
               <ScrollProgress />
               <Header />
-              <main>
-                  <Hero />
-                  <Suspense fallback={<SectionLoader />}>
-                      <TrustBar />
-                      <ServiceList />
-                      <Estimator />
-                      <WorkGrid />
-                      <Process />
-                      <FAQ />
-                      <FinalCTA />
-                  </Suspense>
-              </main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/brief" element={<Brief />} />
+                <Route path="/services/:id" element={<ServiceDetail />} />
+                {/* Redirect old estimate route to brief */}
+                <Route path="/estimate" element={<Navigate to="/brief" replace />} />
+                {/* Catch all redirect to home */}
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
               <Footer />
           </div>
         </div>
-      </EstimatorProvider>
+      </BrowserRouter>
     </LanguageProvider>
   );
 };

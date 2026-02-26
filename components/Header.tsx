@@ -1,13 +1,52 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Language } from '../types';
 import { Menu, X } from 'lucide-react';
+
+const NavLink: React.FC<{ item: any, mobile?: boolean, onClick?: () => void }> = ({ item, mobile = false, onClick }) => {
+  const isHash = item.href.startsWith('#');
+  const className = mobile 
+    ? "font-display text-6xl font-black uppercase text-transparent text-stroke-white hover:text-weego-lime hover:text-stroke-0 transition-all duration-300"
+    : "text-gray-300 font-mono text-xs font-bold uppercase tracking-widest hover:text-weego-lime transition-colors relative group";
+
+  const style = mobile ? { WebkitTextStroke: '1px white' } : {};
+
+  if (isHash) {
+    return (
+      <HashLink 
+        smooth 
+        to={`/${item.href}`} 
+        className={className} 
+        style={style}
+        onClick={onClick}
+      >
+        {!mobile && <span className="absolute -left-3 opacity-0 group-hover:opacity-100 transition-opacity text-weego-lime">/</span>}
+        {item.label}
+      </HashLink>
+    );
+  }
+
+  return (
+    <Link 
+      to={item.href} 
+      className={className} 
+      style={style}
+      onClick={onClick}
+    >
+      {!mobile && <span className="absolute -left-3 opacity-0 group-hover:opacity-100 transition-opacity text-weego-lime">/</span>}
+      {item.label}
+    </Link>
+  );
+};
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t, language, setLanguage } = useLanguage();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +71,8 @@ export const Header: React.FC = () => {
     setIsOpen(false);
   };
 
+  const isHome = location.pathname === '/';
+
   return (
     <>
       <header 
@@ -41,12 +82,12 @@ export const Header: React.FC = () => {
       >
         {/* Logo */}
         <div className="flex flex-col gap-1">
-             <a 
-              href="#" 
+             <Link 
+              to="/" 
               className="font-display font-black text-2xl md:text-3xl tracking-tighter text-white hover:text-weego-lime transition-colors duration-300"
             >
               WEEGO
-            </a>
+            </Link>
             {/* Version Tag - Hides on scroll to clean up UI */}
             <div className={`flex items-center gap-2 font-mono text-[9px] text-gray-500 tracking-widest uppercase transition-opacity duration-300 ${scrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
                 <span>v4.3.0</span>
@@ -59,14 +100,7 @@ export const Header: React.FC = () => {
         <div className="hidden md:flex items-center gap-12">
           <nav className="flex gap-8">
             {t.nav.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-gray-300 font-mono text-xs font-bold uppercase tracking-widest hover:text-weego-lime transition-colors relative group"
-              >
-                <span className="absolute -left-3 opacity-0 group-hover:opacity-100 transition-opacity text-weego-lime">/</span>
-                {item.label}
-              </a>
+              <NavLink key={item.label} item={item} />
             ))}
           </nav>
           
@@ -102,16 +136,8 @@ export const Header: React.FC = () => {
         className={`fixed inset-0 bg-weego-black z-40 flex flex-col justify-center px-6 transition-all duration-500 cubic-bezier(0.87, 0, 0.13, 1) ${isOpen ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-full opacity-0 pointer-events-none'}`}
       >
         <div className="flex flex-col gap-2">
-          {t.nav.map((item, idx) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className="font-display text-6xl font-black uppercase text-transparent text-stroke-white hover:text-weego-lime hover:text-stroke-0 transition-all duration-300"
-              style={{ WebkitTextStroke: '1px white' }}
-            >
-              {item.label}
-            </a>
+          {t.nav.map((item) => (
+            <NavLink key={item.label} item={item} mobile onClick={() => setIsOpen(false)} />
           ))}
         </div>
         

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowDown, Globe } from 'lucide-react';
 
@@ -77,9 +78,9 @@ export const Hero: React.FC = () => {
                 {t.hero.subtitle}
              </p>
              <div className="flex flex-wrap gap-4">
-                <a href="#estimate" className="px-8 py-4 bg-weego-lime text-black font-display font-black uppercase tracking-widest text-sm hover:bg-white transition-all hover:scale-105 active:scale-95">
+                <Link to="/brief" className="px-8 py-4 bg-weego-lime text-black font-display font-black uppercase tracking-widest text-sm hover:bg-white transition-all hover:scale-105 active:scale-95">
                     {t.hero.ctaPrimary}
-                </a>
+                </Link>
                 <a href="#work" className="px-8 py-4 border border-white/30 text-white font-display font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all hover:scale-105 active:scale-95">
                     {t.hero.ctaSecondary}
                 </a>

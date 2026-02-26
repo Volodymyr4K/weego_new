@@ -6,6 +6,8 @@ export interface ServiceRoute {
   title: string;
   oneLiner: string;
   bestFor: string[];
+  included: string[];
+  footnote?: string;
   priceBadge?: string;
   cta: string;
   preset: { route: string; package?: string; options?: string[] };
@@ -20,33 +22,6 @@ export interface Industry {
   id: string;
   label: string;
   preset: { route: string; package?: string; options?: string[] };
-}
-
-export interface EstimatorPackage {
-  id: string;
-  label: string;
-  priceRange: [number, number];
-  timelineRange: [number, number];
-  timelineUnit: 'days' | 'weeks';
-  deliverables: string[];
-}
-
-export interface EstimatorOption {
-  id: string;
-  label: string;
-  priceDelta: [number, number];
-  timelineDelta: [number, number];
-  deliverables?: string[];
-}
-
-export interface EstimatorRoute {
-  id: string;
-  label: string;
-  packages: EstimatorPackage[];
-  options: {
-    visible: EstimatorOption[];
-    more: EstimatorOption[];
-  };
 }
 
 export interface WorkItem {
@@ -106,6 +81,7 @@ export interface TranslationStructure {
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    microLine: string;
   };
   trust: {
     stats: { label: string; value: string }[];
@@ -116,6 +92,12 @@ export interface TranslationStructure {
     heading: string;
     subheading: string;
     routes: ServiceRoute[];
+    customRequest: {
+      title: string;
+      oneLiner: string;
+      bullets: string[];
+      cta: string;
+    };
     capabilities: {
       heading: string;
       items: Capability[];
@@ -127,40 +109,39 @@ export interface TranslationStructure {
       experienceLabel: string;
     };
   };
-  estimator: {
-    heading: string;
-    subheading: string;
-    routes: EstimatorRoute[];
-    recommend: {
-      label: string;
-      questions: {
-        q1: {
-          text: string;
-          options: { label: string; value: string }[];
-        };
-        q2: {
-          text: string;
-          options: { label: string; value: string }[];
-        };
+  brief: {
+    h1: string;
+    subtitle: string;
+    fields: {
+      route: string;
+      timeline: string;
+      links: string;
+      details: string;
+      contact: string;
+    };
+    submit: string;
+    capabilitiesTitle: string;
+    showAllLabel: string;
+    showLessLabel: string;
+    options: {
+      routes: {
+        turnkey: string;
+        platform: string;
+        horeca: string;
+        custom: string;
+      };
+      timeline: {
+        asap: string;
+        weeks: string;
+        flexible: string;
       };
     };
-    result: {
-      priceLabel: string;
-      timelineLabel: string;
-      deliverablesLabel: string;
-      setupLabel: string;
-      monthlyLabel: string;
-      disclaimer: string;
-      cta: string;
-      moreOptions: string;
-    };
-    form: {
-      name: string;
-      contact: string;
-      comment: string;
-      submit: string;
-      success: string;
-    };
+  };
+  serviceDetail: {
+    industriesLabel: string;
+    turnkey: ServiceDetailPage;
+    platform: ServiceDetailPage;
+    horeca: ServiceDetailPage;
   };
   designSystem: DesignSystemSection;
   process: ProcessSection; 
@@ -209,5 +190,19 @@ export interface TranslationStructure {
     imprint: { title: string; content: string[] };
     privacy: { title: string; content: string[] };
     terms: { title: string; content: string[] };
+  };
+}
+
+export interface ServiceDetailPage {
+  h1: string;
+  subtitle: string;
+  cta: string;
+  sections: {
+    bestFor: { title: string; items: string[] };
+    included: { title: string; items: string[] | { group1: string[]; group2: string[] } };
+    packages?: { title: string; items: { name: string; price: string; timeline: string; includes: string }[] };
+    startingFrom?: { title: string; setup: string; maintenance: string };
+    process: { title: string; items: string[] };
+    faq: { title: string; items: { q: string; a: string }[] };
   };
 }

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -24,13 +25,13 @@ export const FinalCTA: React.FC = () => {
         </p>
         
         <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-          <a 
-            href="#estimate" 
+          <Link 
+            to="/brief" 
             className="w-full md:w-auto px-12 py-6 bg-black text-weego-lime font-display font-black uppercase tracking-widest text-lg hover:bg-white hover:text-black transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
           >
             {t.finalCta.ctaPrimary}
             <ArrowUpRight size={24} />
-          </a>
+          </Link>
           <a 
             href="https://wa.me/380683642205" 
             target="_blank"

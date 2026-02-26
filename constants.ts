@@ -6,14 +6,15 @@ export const CONTENT: Record<Language, TranslationStructure> = {
     nav: [
       { label: 'Work', href: '#work' },
       { label: 'Services', href: '#services' },
-      { label: 'Estimate', href: '#estimate' },
+      { label: 'Brief', href: '/brief' },
     ],
     hero: {
-      title1: 'High-Impact',
-      title2: 'Digital Design',
-      subtitle: 'We build high-converting brutalist experiences for forward-thinking brands. Fast, bold, and technically superior.',
-      ctaPrimary: 'Get an Estimate',
-      ctaSecondary: 'View Work'
+      title1: 'LAUNCH FASTER. LOOK PREMIUM.',
+      title2: 'STAY STABLE.',
+      subtitle: 'We design, build, deploy, and support websites and hosted systems.',
+      ctaPrimary: 'START BRIEF',
+      ctaSecondary: 'VIEW WORK',
+      microLine: 'Design • Build • Deploy • Support'
     },
     trust: {
       stats: [
@@ -31,43 +32,69 @@ export const CONTENT: Record<Language, TranslationStructure> = {
       routes: [
         {
           id: 'turnkey',
-          title: 'Turnkey Websites',
-          oneLiner: 'Turnkey websites — fast, neat, with launch.',
+          title: 'TURNKEY WEBSITE',
+          oneLiner: 'Turnkey website — fast, neat, with launch.',
           bestFor: [
-            'To have a normal website and leads',
+            'To have a simple site and leads',
             'When you need to launch quickly',
-            'When you need a fixed starting budget'
+            'When you want a fixed starting budget'
           ],
-          priceBadge: '€300–€500 turnkey',
-          cta: 'Estimate website',
-          preset: { route: 'turnkey', package: 'starter' }
+          included: [
+            'Design + build (responsive)',
+            'Contact form + basic SEO structure',
+            'Deployment + handover'
+          ],
+          priceBadge: 'Starting from €300',
+          cta: 'LEARN MORE',
+          preset: { route: 'turnkey' }
         },
         {
           id: 'platform',
-          title: 'WEEGO Platform (hosted by us)',
-          oneLiner: 'We launch your business on our platform. We deploy, support, and evolve it.',
+          title: 'WEEGO PLATFORM (HOSTED BY US)',
+          oneLiner: 'Launch on our platform. We deploy, maintain, and evolve it.',
           bestFor: [
-            'When you need a system, not just a website',
-            'When support and development are important',
-            'When you want to start faster on a ready-made basis'
+            'When you need more than a website',
+            'When support & updates matter',
+            'When you want to start on a ready base'
           ],
-          priceBadge: 'Setup €500–€900 + €100/month',
-          cta: 'Estimate platform',
-          preset: { route: 'platform', package: 'setup' }
+          included: [
+            'White-label design',
+            'Modules + integrations as needed',
+            'Hosting, deployment & support'
+          ],
+          priceBadge: 'Setup from €500 + €100/month',
+          cta: 'LEARN MORE',
+          preset: { route: 'platform' }
         },
         {
-          id: 'custom',
-          title: 'Custom Build',
-          oneLiner: 'Individual development: web + backend + admin panels + integrations.',
+          id: 'horeca',
+          title: 'HORECA TEMPLATE SYSTEM',
+          oneLiner: 'Template-based HoReCa system — launch fast, adapt to your brand.',
           bestFor: [
-            'When non-standard logic is needed',
-            'When there are integrations/automations',
-            'When modules/cabinets/panels are needed'
+            'Restaurants, cafes, small chains',
+            'When you want a proven template, not from scratch',
+            'When you want ongoing support'
           ],
-          cta: 'Estimate custom',
-          preset: { route: 'custom', package: 'mvp' }
+          included: [
+            'Ready HoReCa base (template)',
+            'Branding + UI adaptation',
+            'Integrations (payments/POS/CRM) optional'
+          ],
+          priceBadge: 'Setup from €600 + €100/month',
+          cta: 'LEARN MORE',
+          preset: { route: 'horeca' }
         }
       ],
+      customRequest: {
+        title: 'CUSTOM REQUEST',
+        oneLiner: 'Not sure what fits? Describe your project — we’ll recommend the best path.',
+        bullets: [
+          'Websites, systems, integrations',
+          'Any industry',
+          'Fast reply'
+        ],
+        cta: 'DESCRIBE PROJECT'
+      },
       capabilities: {
         heading: 'Also we can help with',
         showAllLabel: 'Show all capabilities',
@@ -101,127 +128,203 @@ export const CONTENT: Record<Language, TranslationStructure> = {
         ]
       }
     },
-    estimator: {
-      heading: 'Project Estimator',
-      subheading: '[CALCULATE VALUE]',
-      routes: [
-        {
-          id: 'turnkey',
-          label: 'Turnkey Website',
-          packages: [
-            { id: 'starter', label: 'Starter (Turnkey)', priceRange: [300, 500], timelineRange: [3, 7], timelineUnit: 'days', deliverables: ['Responsive layout', 'Contact form', 'Basic SEO structure', 'Deployment'] },
-            { id: 'standard', label: 'Standard', priceRange: [500, 900], timelineRange: [1, 2], timelineUnit: 'weeks', deliverables: ['Up to 10 Pages', 'CMS Integration', 'Analytics Setup', 'Speed Optimization'] },
-            { id: 'pro', label: 'Pro', priceRange: [900, 1500], timelineRange: [2, 4], timelineUnit: 'weeks', deliverables: ['Custom Design System', 'Advanced Animations', 'Content Strategy', 'Full SEO Setup'] }
-          ],
-          options: {
-            visible: [
-              { id: 'cms', label: 'CMS / Content editor', priceDelta: [100, 250], timelineDelta: [2, 5], deliverables: ['Admin content management'] },
-              { id: 'multilang', label: 'Multilanguage', priceDelta: [80, 200], timelineDelta: [2, 7], deliverables: ['i18n infrastructure'] },
-              { id: 'analytics', label: 'Analytics events', priceDelta: [40, 120], timelineDelta: [1, 2], deliverables: ['Custom event tracking'] },
-              { id: 'seo', label: 'SEO setup (basic)', priceDelta: [60, 150], timelineDelta: [1, 3], deliverables: ['Meta tags & sitemap'] },
-              { id: 'payments', label: 'Payments setup', priceDelta: [120, 300], timelineDelta: [3, 7], deliverables: ['Stripe/PayPal integration'] },
-              { id: 'pos', label: 'CRM/POS integration', priceDelta: [150, 400], timelineDelta: [3, 10], deliverables: ['Third-party data sync'] }
-            ],
-            more: [
-              { id: 'admin', label: 'Admin panel (basic)', priceDelta: [250, 600], timelineDelta: [7, 21], deliverables: ['Custom dashboard'] },
-              { id: 'notifications', label: 'Notifications (email/SMS)', priceDelta: [80, 250], timelineDelta: [2, 5], deliverables: ['Automated alerts'] },
-              { id: 'performance', label: 'Performance pass', priceDelta: [60, 180], timelineDelta: [2, 4], deliverables: ['90+ Lighthouse score'] },
-              { id: 'devops', label: 'DevOps hardening', priceDelta: [100, 300], timelineDelta: [3, 7], deliverables: ['CI/CD & Monitoring'] },
-              { id: 'bi', label: 'BI dashboard (basic)', priceDelta: [250, 700], timelineDelta: [10, 25], deliverables: ['Data visualization'] },
-              { id: 'migration', label: 'Content migration', priceDelta: [60, 250], timelineDelta: [2, 7], deliverables: ['Legacy data import'] },
-              { id: 'booking', label: 'Booking/reservations', priceDelta: [120, 350], timelineDelta: [5, 12], deliverables: ['Calendar system'] },
-              { id: 'roles', label: 'Roles & permissions', priceDelta: [120, 400], timelineDelta: [5, 14], deliverables: ['Advanced access control'] }
-            ]
-          }
+    brief: {
+      h1: 'PROJECT BRIEF',
+      subtitle: 'Tell us what you need — we’ll reply with a plan and next steps.',
+      fields: {
+        route: 'ROUTE',
+        timeline: 'TIMELINE',
+        links: 'LINKS',
+        details: 'PROJECT DETAILS',
+        contact: 'CONTACT (TELEGRAM OR EMAIL)'
+      },
+      submit: 'SUBMIT REQUEST',
+      capabilitiesTitle: 'WHAT WE CAN COVER',
+      showAllLabel: 'SHOW ALL CAPABILITIES',
+      showLessLabel: 'SHOW LESS',
+      options: {
+        routes: {
+          turnkey: 'Turnkey website',
+          platform: 'WEEGO platform',
+          horeca: 'HoReCa template system',
+          custom: 'Custom request'
         },
-        {
-          id: 'platform',
-          label: 'WEEGO Platform',
-          packages: [
-            { id: 'setup', label: 'Platform Setup', priceRange: [500, 900], timelineRange: [1, 3], timelineUnit: 'weeks', deliverables: ['White-label theme', 'Deployment & environments', 'Base modules enabled', 'Maintenance included'] }
-          ],
-          options: {
-            visible: [
-              { id: 'cms', label: 'CMS / Content editor', priceDelta: [100, 250], timelineDelta: [2, 5] },
-              { id: 'multilang', label: 'Multilanguage', priceDelta: [80, 200], timelineDelta: [2, 7] },
-              { id: 'analytics', label: 'Analytics events', priceDelta: [40, 120], timelineDelta: [1, 2] },
-              { id: 'seo', label: 'SEO setup (basic)', priceDelta: [60, 150], timelineDelta: [1, 3] },
-              { id: 'payments', label: 'Payments setup', priceDelta: [120, 300], timelineDelta: [3, 7] },
-              { id: 'pos', label: 'CRM/POS integration', priceDelta: [150, 400], timelineDelta: [3, 10] }
-            ],
-            more: [
-              { id: 'admin', label: 'Admin panel (basic)', priceDelta: [250, 600], timelineDelta: [7, 21] },
-              { id: 'notifications', label: 'Notifications (email/SMS)', priceDelta: [80, 250], timelineDelta: [2, 5] }
-            ]
-          }
-        },
-        {
-          id: 'custom',
-          label: 'Custom Build',
-          packages: [
-            { id: 'mvp', label: 'MVP', priceRange: [700, 1500], timelineRange: [2, 4], timelineUnit: 'weeks', deliverables: ['Core functionality', 'Essential UI', 'Basic Backend', 'Initial Launch'] },
-            { id: 'business', label: 'Business', priceRange: [1500, 3000], timelineRange: [4, 8], timelineUnit: 'weeks', deliverables: ['Full feature set', 'Advanced UI/UX', 'Scalable Backend', 'Admin Dashboard'] },
-            { id: 'full', label: 'Full Enterprise', priceRange: [3000, 6000], timelineRange: [8, 16], timelineUnit: 'weeks', deliverables: ['Complex ecosystem', 'High availability', 'Custom integrations', 'Full support'] }
-          ],
-          options: {
-            visible: [
-              { id: 'cms', label: 'CMS / Content editor', priceDelta: [100, 250], timelineDelta: [2, 5] },
-              { id: 'multilang', label: 'Multilanguage', priceDelta: [80, 200], timelineDelta: [2, 7] },
-              { id: 'analytics', label: 'Analytics events', priceDelta: [40, 120], timelineDelta: [1, 2] },
-              { id: 'seo', label: 'SEO setup (basic)', priceDelta: [60, 150], timelineDelta: [1, 3] },
-              { id: 'payments', label: 'Payments setup', priceDelta: [120, 300], timelineDelta: [3, 7] },
-              { id: 'pos', label: 'CRM/POS integration', priceDelta: [150, 400], timelineDelta: [3, 10] }
-            ],
-            more: [
-              { id: 'admin', label: 'Admin panel (basic)', priceDelta: [250, 600], timelineDelta: [7, 21] },
-              { id: 'notifications', label: 'Notifications (email/SMS)', priceDelta: [80, 250], timelineDelta: [2, 5] },
-              { id: 'performance', label: 'Performance pass', priceDelta: [60, 180], timelineDelta: [2, 4] },
-              { id: 'devops', label: 'DevOps hardening', priceDelta: [100, 300], timelineDelta: [3, 7] },
-              { id: 'bi', label: 'BI dashboard (basic)', priceDelta: [250, 700], timelineDelta: [10, 25] },
-              { id: 'migration', label: 'Content migration', priceDelta: [60, 250], timelineDelta: [2, 7] },
-              { id: 'booking', label: 'Booking/reservations', priceDelta: [120, 350], timelineDelta: [5, 12] },
-              { id: 'roles', label: 'Roles & permissions', priceDelta: [120, 400], timelineDelta: [5, 14] }
-            ]
-          }
+        timeline: {
+          asap: 'ASAP',
+          weeks: '2–4 weeks',
+          flexible: 'Flexible'
         }
-      ],
-      recommend: {
-        label: 'Not sure? Recommend',
-        questions: {
-          q1: {
-            text: 'What do you need most?',
-            options: [
-              { label: 'Website', value: 'website' },
-              { label: 'System / admin', value: 'system' },
-              { label: 'Integrations', value: 'integrations' },
-              { label: 'Ongoing support', value: 'support' }
+      }
+    },
+    serviceDetail: {
+      industriesLabel: 'INDUSTRIES (EXPERIENCE):',
+      turnkey: {
+        h1: 'TURNKEY WEBSITE',
+        subtitle: 'A simple website under your brand — fast, neat, with launch.',
+        cta: 'DESCRIBE PROJECT',
+        sections: {
+          bestFor: {
+            title: 'BEST FOR',
+            items: [
+              'New projects that need a clean online presence',
+              'Small businesses that need leads',
+              'Fast launches with a clear starting budget'
             ]
           },
-          q2: {
-            text: 'Do you want us to host & maintain it?',
-            options: [
-              { label: 'Yes', value: 'yes' },
-              { label: 'No', value: 'no' }
+          included: {
+            title: 'WHAT’S INCLUDED',
+            items: {
+              group1: [
+                'Clean UI layout',
+                'Responsive (mobile/tablet/desktop)',
+                'Basic SEO structure'
+              ],
+              group2: [
+                'Contact form',
+                'Deployment',
+                'Handover'
+              ]
+            }
+          },
+          packages: {
+            title: 'PACKAGES',
+            items: [
+              {
+                name: 'STARTER',
+                price: '€300–€500',
+                timeline: '3–7 days',
+                includes: '1 page or small site, responsive, contact form, deployment'
+              },
+              {
+                name: 'STANDARD',
+                price: '€500–€900',
+                timeline: '1–2 weeks',
+                includes: '5–10 pages, reusable sections, basic analytics setup, deployment'
+              },
+              {
+                name: 'PRO',
+                price: '€900–€1,500',
+                timeline: '2–4 weeks',
+                includes: 'custom UI kit, 1–2 integrations, extended analytics events, performance pass'
+              }
+            ]
+          },
+          process: {
+            title: 'PROCESS',
+            items: [
+              'Short call (goals + scope)',
+              'Design & structure',
+              'Build & polish',
+              'Launch & handover'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Do you provide content?', a: 'We can work with your content or help structure it.' },
+              { q: 'Can you do it faster?', a: 'Sometimes yes — depends on scope and content readiness.' },
+              { q: 'Will it work on mobile?', a: 'Yes, responsive is included.' },
+              { q: 'Can you add analytics?', a: 'Yes — basic setup is included in Standard and above.' },
+              { q: 'Do you provide support after launch?', a: 'Yes — we can continue with monthly support.' }
             ]
           }
         }
       },
-      result: {
-        priceLabel: 'Estimated Price',
-        timelineLabel: 'Timeline',
-        deliverablesLabel: 'What you get',
-        setupLabel: 'Setup',
-        monthlyLabel: 'Monthly',
-        disclaimer: 'Estimate is approximate. Final scope and price are confirmed after a short call.',
-        cta: 'Send Estimate',
-        moreOptions: 'More options'
+      platform: {
+        h1: 'WEEGO PLATFORM (HOSTED BY US)',
+        subtitle: 'Launch on our platform — we deploy, maintain, and evolve it with you.',
+        cta: 'DESCRIBE PROJECT',
+        sections: {
+          bestFor: {
+            title: 'BEST FOR',
+            items: [
+              'Businesses that need more than a website',
+              'Teams that want ongoing support and updates',
+              'Faster starts on a ready foundation'
+            ]
+          },
+          included: {
+            title: 'WHAT’S INCLUDED',
+            items: [
+              'White-label design (your brand)',
+              'Modules enabled for your needs',
+              'Integrations as needed',
+              'Hosting, deployment & maintenance'
+            ]
+          },
+          startingFrom: {
+            title: 'STARTING FROM',
+            setup: 'Setup: €500–€900',
+            maintenance: 'Maintenance: €100/month'
+          },
+          process: {
+            title: 'PROCESS',
+            items: [
+              'Short call (goals + scope)',
+              'Configure modules + branding',
+              'Deploy + final checks',
+              'Support & ongoing improvements'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Is this a template?', a: 'It’s our platform foundation. We adapt it to your brand and needs.' },
+              { q: 'Can we request new features?', a: 'Yes — we can plan improvements as part of ongoing work.' },
+              { q: 'Who hosts it?', a: 'We host and maintain it.' },
+              { q: 'Can you integrate payments/CRM/POS?', a: 'Yes — integrations are possible based on your stack.' },
+              { q: 'Can we move off later?', a: 'We can discuss export/transition options case by case.' }
+            ]
+          }
+        }
       },
-      form: {
-        name: 'Name',
-        contact: 'Telegram / Email',
-        comment: 'Project details (optional)',
-        submit: 'Submit Request',
-        success: 'Data transmitted. We will contact you soon.'
+      horeca: {
+        h1: 'HORECA TEMPLATE SYSTEM',
+        subtitle: 'Template-based HoReCa system — launch fast and adapt it to your brand.',
+        cta: 'DESCRIBE PROJECT',
+        sections: {
+          bestFor: {
+            title: 'BEST FOR',
+            items: [
+              'Restaurants, cafes, small chains',
+              'Teams that want a proven template, not from scratch',
+              'Ongoing support after launch'
+            ]
+          },
+          included: {
+            title: 'WHAT’S INCLUDED',
+            items: [
+              'Ready HoReCa base (template)',
+              'Branding + UI adaptation',
+              'Optional integrations (payments/POS/CRM)',
+              'Hosting, deployment & maintenance'
+            ]
+          },
+          startingFrom: {
+            title: 'STARTING FROM',
+            setup: 'Setup: €600–€1,000',
+            maintenance: 'Maintenance: €100/month'
+          },
+          process: {
+            title: 'PROCESS',
+            items: [
+              'Short call (your flow + priorities)',
+              'Brand/UI adaptation',
+              'Integrations (if needed) + deploy',
+              'Support & updates'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Is it fully custom?', a: 'It’s template-based. We adapt modules and integrations to your needs.' },
+              { q: 'Can we change the design?', a: 'Yes — branding and UI adaptation are included.' },
+              { q: 'Can you integrate POS/CRM/payments?', a: 'Yes — optional integrations.' },
+              { q: 'How fast can we launch?', a: 'Depends on branding and integrations, usually within the setup timeline.' },
+              { q: 'Do you maintain it?', a: 'Yes — monthly maintenance is included as a separate line item.' }
+            ]
+          }
+        }
       }
     },
     designSystem: {
@@ -427,222 +530,325 @@ export const CONTENT: Record<Language, TranslationStructure> = {
     nav: [
       { label: 'Роботи', href: '#work' },
       { label: 'Послуги', href: '#services' },
-      { label: 'Оцінка', href: '#estimate' },
+      { label: 'Бриф', href: '/brief' },
     ],
     hero: {
-      title1: 'Високий',
-      title2: 'Результат',
-      subtitle: 'Ми створюємо брутальні інтерфейси з високою конверсією для брендів, що дивляться в майбутнє. Швидко, сміливо та технічно досконало.',
-      ctaPrimary: 'Отримати оцінку',
-      ctaSecondary: 'Наші роботи'
+      title1: 'ЗАПУСКАЙТЕСЬ ШВИДШЕ. ВИГЛЯДАЙТЕ ПРЕМІАЛЬНО.',
+      title2: 'ПРАЦЮЙТЕ СТАБІЛЬНО.',
+      subtitle: 'Ми проєктуємо, розробляємо, деплоїмо й підтримуємо сайти та хостовані системи.',
+      ctaPrimary: 'ПОЧАТИ БРИФ',
+      ctaSecondary: 'ПЕРЕГЛЯНУТИ РОБОТИ',
+      microLine: 'Дизайн • Розробка • Деплой • Підтримка'
     },
     trust: {
       stats: [
-        { label: 'ПРОЄКТІВ', value: '40+' },
-        { label: 'РОКІВ', value: '5+' },
+        { label: 'ПРОЄКТИ', value: '40+' },
+        { label: 'РОКИ', value: '5+' },
         { label: 'ГЕО', value: 'GLOBAL' },
         { label: 'НІША', value: 'TECH/ART' }
       ],
       logos: ['ARTFLANEUR', 'EPRIS', 'HELPUSUA', 'AM PUBLISHING', 'TECHCORE', 'NEXUS']
     },
-    marquee: ["ВИСОКА КОНВЕРСІЯ", "БРУТАЛЬНИЙ ДИЗАЙН", "ВЕБ-ІНЖЕНЕРІЯ", "ШВИДКІСТЬ ПЕРЕДУСІМ", "SEO ОПТИМІЗАЦІЯ", "МАСШТАБОВАНІ СИСТЕМИ"],
+    marquee: ["ВИСОКА КОНВЕРСІЯ", "БРУТАЛІСТИЧНИЙ ДИЗАЙН", "WEB-ІНЖИНІРИНГ", "ШВИДКІСТЬ ПЕРЕДУСІМ", "SEO ОПТИМІЗАЦІЯ", "СКАЛЬОВАНІ СИСТЕМИ"],
     services: {
       heading: 'Послуги',
       subheading: '[ЩО МИ РОБИМО]',
       routes: [
         {
           id: 'turnkey',
-          title: 'Turnkey Websites',
-          oneLiner: 'Сайти під ключ — швидко, акуратно, з запуском.',
+          title: 'САЙТ ПІД КЛЮЧ',
+          oneLiner: 'Сайт під ключ — швидко, охайно, із запуском.',
           bestFor: [
-            'Щоб мати нормальний сайт і заявки',
-            'Коли треба швидко запуститись',
+            'Для простого сайту та отримання лідів',
+            'Коли потрібно запуститися максимально швидко',
             'Коли потрібен фіксований стартовий бюджет'
           ],
-          priceBadge: '€300–€500 turnkey',
-          cta: 'Estimate website',
-          preset: { route: 'turnkey', package: 'starter' }
+          included: [
+            'Дизайн + розробка (responsive)',
+            'Форма зв’язку + базова SEO-структура',
+            'Деплой + передача проєкту'
+          ],
+          priceBadge: 'Від €300',
+          cta: 'ДІЗНАТИСЯ БІЛЬШЕ',
+          preset: { route: 'turnkey' }
         },
         {
           id: 'platform',
-          title: 'WEEGO Platform (hosted by us)',
-          oneLiner: 'Запускаємо ваш бізнес на нашій платформі. Ми деплоїмо, підтримуємо і дописуємо.',
+          title: 'ПЛАТФОРМА WEEGO (ХОСТИНГ У НАС)',
+          oneLiner: 'Запуск на нашій платформі. Ми розгортаємо, підтримуємо та розвиваємо її.',
           bestFor: [
-            'Коли потрібна система, а не тільки сайт',
-            'Коли важлива підтримка і розвиток',
-            'Коли хочете швидше стартувати на готовій основі'
+            'Коли потрібно більше, ніж просто сайт',
+            'Коли важливі підтримка та оновлення',
+            'Коли хочеться стартувати на готовій базі'
           ],
-          priceBadge: 'Setup €500–€900 + €100/month',
-          cta: 'Estimate platform',
-          preset: { route: 'platform', package: 'setup' }
+          included: [
+            'White-label дизайн (ваш бренд)',
+            'Модулі + інтеграції за потребою',
+            'Хостинг, деплой та підтримка'
+          ],
+          priceBadge: 'Setup від €500 + €100/міс',
+          cta: 'ДІЗНАТИСЯ БІЛЬШЕ',
+          preset: { route: 'platform' }
         },
         {
-          id: 'custom',
-          title: 'Custom Build',
-          oneLiner: 'Індивідуальна розробка: web + backend + адмінки + інтеграції.',
+          id: 'horeca',
+          title: 'HORECA TEMPLATE SYSTEM',
+          oneLiner: 'HoReCa система на базі шаблонів — швидкий запуск, адаптація під бренд.',
           bestFor: [
-            'Коли потрібна нестандартна логіка',
-            'Коли є інтеграції/автоматизації',
-            'Коли потрібні модулі/кабінети/панелі'
+            'Ресторани, кафе, невеликі мережі',
+            'Коли потрібен перевірений шаблон, а не розробка з нуля',
+            'Коли потрібна постійна підтримка'
           ],
-          cta: 'Estimate custom',
-          preset: { route: 'custom', package: 'mvp' }
+          included: [
+            'Готова HoReCa база (шаблон)',
+            'Брендинг + адаптація UI',
+            'Інтеграції (платежі/POS/CRM) опціонально'
+          ],
+          priceBadge: 'Setup від €600 + €100/міс',
+          cta: 'ДІЗНАТИСЯ БІЛЬШЕ',
+          preset: { route: 'horeca' }
         }
       ],
+      customRequest: {
+        title: 'КАСТОМНИЙ ЗАПИТ',
+        oneLiner: 'Не впевнені, що підійде? Опишіть проєкт — ми порадимо найкращий шлях.',
+        bullets: [
+          'Сайти, системи, інтеграції',
+          'Будь-яка індустрія',
+          'Швидка відповідь'
+        ],
+        cta: 'ОПИСАТИ ПРОЄКТ'
+      },
       capabilities: {
-        heading: 'Також ми допомагаємо з',
+        heading: 'Також ми можемо допомогти з',
         showAllLabel: 'Показати всі можливості',
         items: [
           { id: 'backend', label: 'Backend / API' },
-          { id: 'admin', label: 'Admin panels / dashboards' },
-          { id: 'payments', label: 'Payments & webhooks' },
-          { id: 'pos', label: 'POS / CRM integrations' },
+          { id: 'admin', label: 'Адмін-панелі / дашборди' },
+          { id: 'payments', label: 'Платежі та вебхуки' },
+          { id: 'pos', label: 'Інтеграції з POS / CRM' },
           { id: 'devops', label: 'DevOps / Cloud' },
           { id: 'mobile', label: 'Mobile / PWA' },
-          { id: 'bi', label: 'Data / BI dashboards' },
-          { id: 'automation', label: 'Automation / integrations' },
-          { id: 'performance', label: 'Performance optimization' },
-          { id: 'seo', label: 'SEO setup' },
-          { id: 'analytics', label: 'Analytics events' },
-          { id: 'migration', label: 'Content migration' },
-          { id: 'notifications', label: 'Notifications (email/SMS)' },
-          { id: 'security', label: 'Security hardening' },
-          { id: 'audit', label: 'Technical audit' },
-          { id: 'consulting', label: 'Architectural consulting' }
+          { id: 'bi', label: 'Data / BI дашборди' },
+          { id: 'automation', label: 'Автоматизація / інтеграції' },
+          { id: 'performance', label: 'Оптимізація швидкості' },
+          { id: 'seo', label: 'SEO налаштування' },
+          { id: 'analytics', label: 'Події аналітики' },
+          { id: 'migration', label: 'Міграція контенту' },
+          { id: 'notifications', label: 'Сповіщення (email/SMS)' },
+          { id: 'security', label: 'Посилення безпеки' },
+          { id: 'audit', label: 'Технічний аудит' },
+          { id: 'consulting', label: 'Архітектурний консалтинг' }
         ]
       },
       industries: {
-        heading: 'Industries (experience)',
-        experienceLabel: 'Досвід, а не шаблон для всіх.',
+        heading: 'Індустрії (досвід)',
+        experienceLabel: 'Досвід, а не шаблонний підхід для всіх.',
         items: [
           { id: 'horeca', label: 'HoReCa', preset: { route: 'platform', options: ['pos', 'payments', 'admin'] } },
           { id: 'retail', label: 'Retail', preset: { route: 'custom', options: ['payments', 'automation'] } },
-          { id: 'services', label: 'Services', preset: { route: 'turnkey', options: ['seo', 'analytics'] } },
+          { id: 'services', label: 'Послуги', preset: { route: 'turnkey', options: ['seo', 'analytics'] } },
           { id: 'ngo', label: 'NGOs', preset: { route: 'turnkey', options: ['multilang'] } }
         ]
       }
     },
-    estimator: {
-      heading: 'Калькулятор проекту',
-      subheading: '[РОЗРАХУНОК ВАРТОСТІ]',
-      routes: [
-        {
-          id: 'turnkey',
-          label: 'Turnkey Website',
-          packages: [
-            { id: 'starter', label: 'Starter (Turnkey)', priceRange: [300, 500], timelineRange: [3, 7], timelineUnit: 'days', deliverables: ['Адаптивна верстка', 'Контактна форма', 'Базова SEO структура', 'Деплой'] },
-            { id: 'standard', label: 'Standard', priceRange: [500, 900], timelineRange: [1, 2], timelineUnit: 'weeks', deliverables: ['До 10 сторінок', 'Інтеграція CMS', 'Налаштування аналітики', 'Оптимізація швидкості'] },
-            { id: 'pro', label: 'Pro', priceRange: [900, 1500], timelineRange: [2, 4], timelineUnit: 'weeks', deliverables: ['Кастомна дизайн-система', 'Складна анімація', 'Контент-стратегія', 'Повне SEO налаштування'] }
-          ],
-          options: {
-            visible: [
-              { id: 'cms', label: 'CMS / Редактор контенту', priceDelta: [100, 250], timelineDelta: [2, 5], deliverables: ['Адмін-панель керування контентом'] },
-              { id: 'multilang', label: 'Мультимовність', priceDelta: [80, 200], timelineDelta: [2, 7], deliverables: ['Інфраструктура i18n'] },
-              { id: 'analytics', label: 'Події аналітики', priceDelta: [40, 120], timelineDelta: [1, 2], deliverables: ['Відстеження кастомних подій'] },
-              { id: 'seo', label: 'SEO налаштування (базове)', priceDelta: [60, 150], timelineDelta: [1, 3], deliverables: ['Мета-теги та sitemap'] },
-              { id: 'payments', label: 'Налаштування оплат', priceDelta: [120, 300], timelineDelta: [3, 7], deliverables: ['Інтеграція Stripe/PayPal'] },
-              { id: 'pos', label: 'CRM/POS інтеграція', priceDelta: [150, 400], timelineDelta: [3, 10], deliverables: ['Синхронізація даних'] }
-            ],
-            more: [
-              { id: 'admin', label: 'Адмін-панель (базова)', priceDelta: [250, 600], timelineDelta: [7, 21], deliverables: ['Кастомний дашборд'] },
-              { id: 'notifications', label: 'Сповіщення (email/SMS)', priceDelta: [80, 250], timelineDelta: [2, 5], deliverables: ['Автоматичні сповіщення'] },
-              { id: 'performance', label: 'Оптимізація швидкості', priceDelta: [60, 180], timelineDelta: [2, 4], deliverables: ['90+ Lighthouse score'] },
-              { id: 'devops', label: 'DevOps hardening', priceDelta: [100, 300], timelineDelta: [3, 7], deliverables: ['CI/CD та моніторинг'] },
-              { id: 'bi', label: 'BI дашборд (базовий)', priceDelta: [250, 700], timelineDelta: [10, 25], deliverables: ['Візуалізація даних'] },
-              { id: 'migration', label: 'Міграція контенту', priceDelta: [60, 250], timelineDelta: [2, 7], deliverables: ['Імпорт старих даних'] },
-              { id: 'booking', label: 'Бронювання', priceDelta: [120, 350], timelineDelta: [5, 12], deliverables: ['Система календаря'] },
-              { id: 'roles', label: 'Ролі та права доступу', priceDelta: [120, 400], timelineDelta: [5, 14], deliverables: ['Розширений контроль доступу'] }
-            ]
-          }
+    brief: {
+      h1: 'ПРОЄКТНИЙ БРИФ',
+      subtitle: 'Розкажіть, що вам потрібно — ми відповімо з планом та наступними кроками.',
+      fields: {
+        route: 'НАПРЯМОК',
+        timeline: 'ТЕРМІНИ',
+        links: 'ПОСИЛАННЯ',
+        details: 'ДЕТАЛІ ПРОЄКТУ',
+        contact: 'КОНТАКТ (TELEGRAM АБО EMAIL)'
+      },
+      submit: 'ВІДПРАВИТИ ЗАПИТ',
+      capabilitiesTitle: 'ЩО МИ МОЖЕМО ЗРОБИТИ',
+      showAllLabel: 'ПОКАЗАТИ ВСІ МОЖЛИВОСТІ',
+      showLessLabel: 'ЗГОРНУТИ',
+      options: {
+        routes: {
+          turnkey: 'Сайт під ключ',
+          platform: 'WEEGO платформа',
+          horeca: 'HoReCa система',
+          custom: 'Кастомний запит'
         },
-        {
-          id: 'platform',
-          label: 'WEEGO Platform',
-          packages: [
-            { id: 'setup', label: 'Platform Setup', priceRange: [500, 900], timelineRange: [1, 3], timelineUnit: 'weeks', deliverables: ['White-label тема', 'Деплой та середовища', 'Базові модулі активовані', 'Підтримка включена'] }
-          ],
-          options: {
-            visible: [
-              { id: 'cms', label: 'CMS / Редактор контенту', priceDelta: [100, 250], timelineDelta: [2, 5] },
-              { id: 'multilang', label: 'Мультимовність', priceDelta: [80, 200], timelineDelta: [2, 7] },
-              { id: 'analytics', label: 'Події аналітики', priceDelta: [40, 120], timelineDelta: [1, 2] },
-              { id: 'seo', label: 'SEO налаштування (базове)', priceDelta: [60, 150], timelineDelta: [1, 3] },
-              { id: 'payments', label: 'Налаштування оплат', priceDelta: [120, 300], timelineDelta: [3, 7] },
-              { id: 'pos', label: 'CRM/POS інтеграція', priceDelta: [150, 400], timelineDelta: [3, 10] }
-            ],
-            more: [
-              { id: 'admin', label: 'Адмін-панель (базова)', priceDelta: [250, 600], timelineDelta: [7, 21] },
-              { id: 'notifications', label: 'Сповіщення (email/SMS)', priceDelta: [80, 250], timelineDelta: [2, 5] }
-            ]
-          }
-        },
-        {
-          id: 'custom',
-          label: 'Custom Build',
-          packages: [
-            { id: 'mvp', label: 'MVP', priceRange: [700, 1500], timelineRange: [2, 4], timelineUnit: 'weeks', deliverables: ['Основний функціонал', 'Базовий UI', 'Backend', 'Початковий запуск'] },
-            { id: 'business', label: 'Business', priceRange: [1500, 3000], timelineRange: [4, 8], timelineUnit: 'weeks', deliverables: ['Повний набір функцій', 'Просунутий UI/UX', 'Масштабований Backend', 'Адмін-дашборд'] },
-            { id: 'full', label: 'Full Enterprise', priceRange: [3000, 6000], timelineRange: [8, 16], timelineUnit: 'weeks', deliverables: ['Складна екосистема', 'Висока доступність', 'Кастомні інтеграції', 'Повна підтримка'] }
-          ],
-          options: {
-            visible: [
-              { id: 'cms', label: 'CMS / Редактор контенту', priceDelta: [100, 250], timelineDelta: [2, 5] },
-              { id: 'multilang', label: 'Мультимовність', priceDelta: [80, 200], timelineDelta: [2, 7] },
-              { id: 'analytics', label: 'Події аналітики', priceDelta: [40, 120], timelineDelta: [1, 2] },
-              { id: 'seo', label: 'SEO налаштування (базове)', priceDelta: [60, 150], timelineDelta: [1, 3] },
-              { id: 'payments', label: 'Налаштування оплат', priceDelta: [120, 300], timelineDelta: [3, 7] },
-              { id: 'pos', label: 'CRM/POS інтеграція', priceDelta: [150, 400], timelineDelta: [3, 10] }
-            ],
-            more: [
-              { id: 'admin', label: 'Адмін-панель (базова)', priceDelta: [250, 600], timelineDelta: [7, 21] },
-              { id: 'notifications', label: 'Сповіщення (email/SMS)', priceDelta: [80, 250], timelineDelta: [2, 5] },
-              { id: 'performance', label: 'Оптимізація швидкості', priceDelta: [60, 180], timelineDelta: [2, 4] },
-              { id: 'devops', label: 'DevOps hardening', priceDelta: [100, 300], timelineDelta: [3, 7] },
-              { id: 'bi', label: 'BI дашборд (базовий)', priceDelta: [250, 700], timelineDelta: [10, 25] },
-              { id: 'migration', label: 'Міграція контенту', priceDelta: [60, 250], timelineDelta: [2, 7] },
-              { id: 'booking', label: 'Бронювання', priceDelta: [120, 350], timelineDelta: [5, 12] },
-              { id: 'roles', label: 'Ролі та права доступу', priceDelta: [120, 400], timelineDelta: [5, 14] }
-            ]
-          }
+        timeline: {
+          asap: 'Якомога швидше',
+          weeks: '2–4 тижні',
+          flexible: 'Гнучкі'
         }
-      ],
-      recommend: {
-        label: 'Не впевнені? Рекомендуємо',
-        questions: {
-          q1: {
-            text: 'Що вам потрібно найбільше?',
-            options: [
-              { label: 'Сайт', value: 'website' },
-              { label: 'Система / адмінка', value: 'system' },
-              { label: 'Інтеграції', value: 'integrations' },
-              { label: 'Постійна підтримка', value: 'support' }
+      }
+    },
+    serviceDetail: {
+      industriesLabel: 'СФЕРИ (ДОСВІД):',
+      turnkey: {
+        h1: 'САЙТ ПІД КЛЮЧ',
+        subtitle: 'Простий сайт під вашим брендом — швидко, охайно, із запуском.',
+        cta: 'ОПИСАТИ ПРОЄКТ',
+        sections: {
+          bestFor: {
+            title: 'НАЙКРАЩЕ ПІДХОДИТЬ ДЛЯ',
+            items: [
+              'Нових проєктів, яким потрібна чиста онлайн-присутність',
+              'Малого бізнесу, якому потрібні ліди',
+              'Швидких запусків із зрозумілим стартовим бюджетом'
             ]
           },
-          q2: {
-            text: 'Ви хочете, щоб ми хостили та підтримували це?',
-            options: [
-              { label: 'Так', value: 'yes' },
-              { label: 'Ні', value: 'no' }
+          included: {
+            title: 'ЩО ВХОДИТЬ',
+            items: {
+              group1: [
+                'Чистий UI-лейаут',
+                'Адаптивність (mobile/tablet/desktop)',
+                'Базова SEO-структура'
+              ],
+              group2: [
+                'Форма зв’язку',
+                'Деплой (розгортання)',
+                'Передача проєкту'
+              ]
+            }
+          },
+          packages: {
+            title: 'ПАКЕТИ',
+            items: [
+              {
+                name: 'STARTER',
+                price: '€300–€500',
+                timeline: '3–7 днів',
+                includes: '1 сторінка або невеликий сайт, адаптив, форма зв’язку, деплой'
+              },
+              {
+                name: 'STANDARD',
+                price: '€500–€900',
+                timeline: '1–2 тижні',
+                includes: '5–10 сторінок, багаторазові секції, базове налаштування аналітики, деплой'
+              },
+              {
+                name: 'PRO',
+                price: '€900–€1,500',
+                timeline: '2–4 тижні',
+                includes: 'кастомний UI kit, 1–2 інтеграції, розширені події аналітики, оптимізація швидкості'
+              }
+            ]
+          },
+          process: {
+            title: 'ПРОЦЕС',
+            items: [
+              'Короткий дзвінок (цілі + обсяг)',
+              'Дизайн та структура',
+              'Розробка та шліфування',
+              'Запуск та передача'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Ви надаєте контент?', a: 'Ми можемо працювати з вашим контентом або допомогти його структурувати.' },
+              { q: 'Чи можна зробити швидше?', a: 'Іноді так — залежить від обсягу та готовності контенту.' },
+              { q: 'Чи буде сайт працювати на мобільних?', a: 'Так, адаптивність включена за замовчуванням.' },
+              { q: 'Чи можна додати аналітику?', a: 'Так — базове налаштування входить у пакет Standard та вище.' },
+              { q: 'Чи надаєте ви підтримку після запуску?', a: 'Так — ми можемо продовжити роботу у форматі щомісячної підтримки.' }
             ]
           }
         }
       },
-      result: {
-        priceLabel: 'Орієнтовна ціна',
-        timelineLabel: 'Терміни',
-        deliverablesLabel: 'Що ви отримуєте',
-        setupLabel: 'Setup',
-        monthlyLabel: 'Щомісяця',
-        disclaimer: 'Розрахунок є приблизним. Фінальний обсяг та ціна підтверджуються після короткого дзвінка.',
-        cta: 'Надіслати запит',
-        moreOptions: 'Більше опцій'
+      platform: {
+        h1: 'ПЛАТФОРМА WEEGO (ХОСТИНГ У НАС)',
+        subtitle: 'Запуск на нашій платформі — ми розгортаємо, підтримуємо та розвиваємо її разом з вами.',
+        cta: 'ОПИСАТИ ПРОЄКТ',
+        sections: {
+          bestFor: {
+            title: 'НАЙКРАЩЕ ПІДХОДИТЬ ДЛЯ',
+            items: [
+              'Бізнесів, яким потрібно більше, ніж просто сайт',
+              'Команд, яким потрібна постійна підтримка та оновлення',
+              'Швидкого старту на готовій та надійній основі'
+            ]
+          },
+          included: {
+            title: 'ЩО ВХОДИТЬ',
+            items: [
+              'White-label дизайн (під ваш бренд)',
+              'Модулі, активовані під ваші потреби',
+              'Інтеграції за запитом',
+              'Хостинг, деплой та технічне обслуговування'
+            ]
+          },
+          startingFrom: {
+            title: 'ВАРТІСТЬ ВІД',
+            setup: 'Налаштування: €500–€900',
+            maintenance: 'Підтримка: €100/міс'
+          },
+          process: {
+            title: 'ПРОЦЕС',
+            items: [
+              'Короткий дзвінок (цілі + обсяг)',
+              'Конфігурація модулів + брендинг',
+              'Деплой + фінальні перевірки',
+              'Підтримка та постійні покращення'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Це шаблон?', a: 'Це наша платформа-основа. Ми адаптуємо її під ваш бренд та потреби.' },
+              { q: 'Чи можна запитувати нові функції?', a: 'Так — ми плануємо покращення в рамках постійної підтримки.' },
+              { q: 'Хто хостить сайт?', a: 'Ми беремо на себе хостинг та технічне обслуговування.' },
+              { q: 'Чи можна інтегрувати платежі/CRM/POS?', a: 'Так — інтеграції можливі залежно від вашого стеку.' },
+              { q: 'Чи можна переїхати пізніше?', a: 'Ми можемо обговорити варіанти експорту/переходу в індивідуальному порядку.' }
+            ]
+          }
+        }
       },
-      form: {
-        name: 'Ім’я',
-        contact: 'Telegram / Email',
-        comment: 'Деталі проєкту (необов’язково)',
-        submit: 'Надіслати запит',
-        success: 'Дані передано. Ми зв’яжемося з вами найближчим часом.'
+      horeca: {
+        h1: 'HORECA TEMPLATE SYSTEM',
+        subtitle: 'Система HoReCa на базі шаблонів — швидкий запуск та адаптація під ваш бренд.',
+        cta: 'ОПИСАТИ ПРОЄКТ',
+        sections: {
+          bestFor: {
+            title: 'НАЙКРАЩЕ ПІДХОДИТЬ ДЛЯ',
+            items: [
+              'Ресторанів, кафе, невеликих мереж',
+              'Команд, які хочуть перевірений шаблон, а не розробку з нуля',
+              'Постійної підтримки після запуску'
+            ]
+          },
+          included: {
+            title: 'ЩО ВХОДИТЬ',
+            items: [
+              'Готова HoReCa база (шаблон)',
+              'Брендинг + адаптація UI',
+              'Опціональні інтеграції (платежі/POS/CRM)',
+              'Хостинг, деплой та технічне обслуговування'
+            ]
+          },
+          startingFrom: {
+            title: 'ВАРТІСТЬ ВІД',
+            setup: 'Налаштування: €600–€1,000',
+            maintenance: 'Підтримка: €100/міс'
+          },
+          process: {
+            title: 'ПРОЦЕС',
+            items: [
+              'Короткий дзвінок (ваш флоу + пріоритети)',
+              'Адаптація бренду/UI',
+              'Інтеграції (якщо потрібно) + деплой',
+              'Підтримка та оновлення'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Це повністю кастомна розробка?', a: 'Це система на базі шаблонів. Ми адаптуємо модулі та інтеграції під ваші потреби.' },
+              { q: 'Чи можна змінити дизайн?', a: 'Так — брендинг та адаптація UI входять у вартість.' },
+              { q: 'Чи можна інтегрувати POS/CRM/платежі?', a: 'Так — це доступно як опціональні інтеграції.' },
+              { q: 'Як швидко ми можемо запуститися?', a: 'Залежить від брендингу та інтеграцій, зазвичай у межах термінів налаштування.' },
+              { q: 'Ви підтримуєте систему?', a: 'Так — щомісячна підтримка включена окремим пунктом.' }
+            ]
+          }
+        }
       }
     },
     designSystem: {
@@ -848,14 +1054,15 @@ export const CONTENT: Record<Language, TranslationStructure> = {
     nav: [
       { label: 'Lavori', href: '#work' },
       { label: 'Servizi', href: '#services' },
-      { label: 'Studio', href: '#studio' },
+      { label: 'Brief', href: '/brief' },
     ],
     hero: {
-      title1: 'Andiamo',
-      title2: 'Oltre',
-      subtitle: 'Studio di design digitale che crea esperienze brutaliste per brand che osano essere diversi.',
-      ctaPrimary: 'Ottieni un preventivo',
-      ctaSecondary: 'Vedi i lavori'
+      title1: 'LANCIA PIÙ VELOCE. ASPETTO PREMIUM.',
+      title2: 'STABILITÀ.',
+      subtitle: 'Progettiamo, sviluppiamo, deployiamo e supportiamo siti e sistemi hosted.',
+      ctaPrimary: 'AVVIA BRIEF',
+      ctaSecondary: 'VEDI LAVORI',
+      microLine: 'Design • Sviluppo • Deploy • Supporto'
     },
     trust: {
       stats: [
@@ -873,157 +1080,299 @@ export const CONTENT: Record<Language, TranslationStructure> = {
       routes: [
         {
           id: 'turnkey',
-          title: 'Siti Chiavi in Mano',
-          oneLiner: 'Presenza professionale in 3-7 giorni.',
+          title: 'SITO CHIAVI IN MANO',
+          oneLiner: 'Sito chiavi in mano — veloce, ordinato, con lancio.',
           bestFor: [
-            'Landing page e siti vetrina',
-            'Startup che necessitano di velocità',
-            'Budget ottimizzati (€300–€500)'
+            'Per un sito semplice e generazione lead',
+            'Quando devi andare online il prima possibile',
+            'Quando cerchi un budget iniziale fisso'
           ],
-          priceBadge: 'da €300',
-          cta: 'Configura',
-          preset: { route: 'turnkey', package: 'standard' }
+          included: [
+            'Design + sviluppo (responsive)',
+            'Modulo contatti + struttura SEO base',
+            'Deploy + consegna progetto'
+          ],
+          priceBadge: 'Da €300',
+          cta: 'SCOPRI DI PIÙ',
+          preset: { route: 'turnkey' }
         },
         {
           id: 'platform',
-          title: 'Piattaforma WEEGO',
-          oneLiner: 'Il tuo ecosistema digitale, gestito da noi.',
+          title: 'PIATTAFORMA WEEGO (HOSTED DA NOI)',
+          oneLiner: 'Lancio sulla nostra piattaforma. La configuriamo, manteniamo e facciamo evolvere.',
           bestFor: [
-            'Business in crescita',
-            'Nessun mal di testa tecnico',
-            'Supporto e aggiornamenti inclusi'
+            'Quando serve più di un semplice sito',
+            'Quando supporto e aggiornamenti sono critici',
+            'Quando vuoi partire da una base solida e pronta'
           ],
-          priceBadge: '€400 + €40/mese',
-          cta: 'Inizia',
-          preset: { route: 'platform', package: 'standard' }
+          included: [
+            'Design white-label (tuo brand)',
+            'Moduli + integrazioni su richiesta',
+            'Hosting, deploy e supporto tecnico'
+          ],
+          priceBadge: 'Setup da €500 + €100/mese',
+          cta: 'SCOPRI DI PIÙ',
+          preset: { route: 'platform' }
         },
         {
-          id: 'custom',
-          title: 'Sviluppo su Misura',
-          oneLiner: 'Sistemi complessi per sfide uniche.',
+          id: 'horeca',
+          title: 'HORECA TEMPLATE SYSTEM',
+          oneLiner: 'Sistema HoReCa basato su template — lancio rapido, adattato al tuo brand.',
           bestFor: [
-            'E-commerce e Web App',
-            'Integrazioni Backend/API',
-            'Soluzioni Enterprise scalabili'
+            'Ristoranti, caffè, piccole catene',
+            'Quando vuoi un template testato, non da zero',
+            'Quando cerchi supporto continuo'
           ],
-          cta: 'Calcola',
-          preset: { route: 'custom', package: 'standard' }
+          included: [
+            'Base HoReCa pronta (template)',
+            'Branding + adattamento UI',
+            'Integrazioni (pagamenti/POS/CRM) opzionali'
+          ],
+          priceBadge: 'Setup da €600 + €100/mese',
+          cta: 'SCOPRI DI PIÙ',
+          preset: { route: 'horeca' }
         }
       ],
+      customRequest: {
+        title: 'RICHIESTA CUSTOM',
+        oneLiner: 'Non sai cosa scegliere? Descrivi il progetto — ti consiglieremo la strada migliore.',
+        bullets: [
+          'Siti, sistemi, integrazioni',
+          'Qualsiasi settore',
+          'Risposta rapida'
+        ],
+        cta: 'DESCRIVI PROGETTO'
+      },
       capabilities: {
         heading: 'Inoltre possiamo aiutarti con',
         showAllLabel: 'Mostra tutte le capacità',
         items: [
-          { id: 'web', label: 'Web Engineering' },
-          { id: 'design', label: 'Brutalist Design' },
-          { id: 'backend', label: 'Backend Systems' },
-          { id: 'ecommerce', label: 'E-commerce' },
-          { id: 'devops', label: 'DevOps & Cloud' },
-          { id: 'integrations', label: 'Integrazioni API' },
-          { id: 'audit', label: 'Audit & Redesign' },
-          { id: 'support', label: 'Supporto SLA' }
+          { id: 'backend', label: 'Backend / API' },
+          { id: 'admin', label: 'Pannelli Admin / Dashboard' },
+          { id: 'payments', label: 'Pagamenti & Webhook' },
+          { id: 'pos', label: 'Integrazioni POS / CRM' },
+          { id: 'devops', label: 'DevOps / Cloud' },
+          { id: 'mobile', label: 'Mobile / PWA' },
+          { id: 'bi', label: 'Dashboard Data / BI' },
+          { id: 'automation', label: 'Automazione / Integrazioni' },
+          { id: 'performance', label: 'Ottimizzazione Performance' },
+          { id: 'seo', label: 'Setup SEO' },
+          { id: 'analytics', label: 'Eventi Analytics' },
+          { id: 'migration', label: 'Migrazione Contenuti' },
+          { id: 'notifications', label: 'Notifiche (email/SMS)' },
+          { id: 'security', label: 'Sicurezza' },
+          { id: 'audit', label: 'Audit Tecnico' },
+          { id: 'consulting', label: 'Consulenza Architetturale' }
         ]
       },
       industries: {
         heading: 'Settori (esperienza)',
-        experienceLabel: 'Esperienza, non un modello unico per tutti.',
+        experienceLabel: 'Esperienza reale, non un modello unico per tutti.',
         items: [
-          { id: 'horeca', label: 'HoReCa', preset: { route: 'custom', package: 'pro', options: ['booking', 'menu'] } },
-          { id: 'tech', label: 'Tech & SaaS', preset: { route: 'custom', package: 'standard', options: ['api'] } },
-          { id: 'art', label: 'Art & Culture', preset: { route: 'turnkey', package: 'pro', options: ['branding'] } }
+          { id: 'horeca', label: 'HoReCa', preset: { route: 'platform', options: ['pos', 'payments', 'admin'] } },
+          { id: 'retail', label: 'Retail', preset: { route: 'custom', options: ['payments', 'automation'] } },
+          { id: 'services', label: 'Servizi', preset: { route: 'turnkey', options: ['seo', 'analytics'] } },
+          { id: 'ngo', label: 'NGOs', preset: { route: 'turnkey', options: ['multilang'] } }
         ]
       }
     },
-    estimator: {
-      heading: 'Calcolatore di Progetto',
-      subheading: '[CALCOLO COSTI]',
-      routes: [
-        {
-          id: 'turnkey',
-          label: 'Siti Chiavi in Mano',
-          packages: [
-            { id: 'standard', label: 'Standard Turnkey', priceRange: [300, 500], timelineRange: [3, 7], timelineUnit: 'days', deliverables: ['Design Brutalista', 'Sviluppo Responsive', 'Base SEO', 'Modulo Contatti', 'Hosting Setup'] },
-            { id: 'pro', label: 'Premium Turnkey', priceRange: [500, 800], timelineRange: [5, 10], timelineUnit: 'days', deliverables: ['Design Avanzato', 'Copywriting Base', 'Animazioni Motion', 'Integrazione Analytics'] }
-          ],
-          options: {
-            visible: [
-              { id: 'branding', label: 'Identità Visiva', priceDelta: [150, 400], timelineDelta: [2, 4] },
-              { id: 'copy', label: 'Copywriting Prof.', priceDelta: [100, 300], timelineDelta: [2, 3] }
-            ],
-            more: [
-              { id: 'multilang', label: 'Multilingua', priceDelta: [100, 250], timelineDelta: [1, 2] }
-            ]
-          }
+    brief: {
+      h1: 'BRIEF DEL PROGETTO',
+      subtitle: 'Raccontaci cosa ti serve — ti risponderemo con un piano e i prossimi passi.',
+      fields: {
+        route: 'PERCORSO',
+        timeline: 'TEMPISTICHE',
+        links: 'LINK',
+        details: 'DETTAGLI PROGETTO',
+        contact: 'CONTATTO (TELEGRAM O EMAIL)'
+      },
+      submit: 'INVIA RICHIESTA',
+      capabilitiesTitle: 'COSA POSSIAMO COPRIRE',
+      showAllLabel: 'MOSTRA TUTTE LE CAPACITÀ',
+      showLessLabel: 'MOSTRA MENO',
+      options: {
+        routes: {
+          turnkey: 'Sito chiavi in mano',
+          platform: 'Piattaforma WEEGO',
+          horeca: 'Sistema HoReCa',
+          custom: 'Richiesta custom'
         },
-        {
-          id: 'platform',
-          label: 'Piattaforma WEEGO',
-          packages: [
-            { id: 'standard', label: 'Setup Piattaforma', priceRange: [400, 400], timelineRange: [1, 1], timelineUnit: 'weeks', deliverables: ['Core Platform Setup', 'Configurazione Dominio', 'Formazione Team', 'Monitoraggio 24/7', 'Aggiornamenti Mensili'] }
-          ],
-          options: {
-            visible: [
-              { id: 'customization', label: 'Personalizzazione UI', priceDelta: [200, 500], timelineDelta: [1, 2] }
-            ],
-            more: []
-          }
-        },
-        {
-          id: 'custom',
-          label: 'Sviluppo su Misura',
-          packages: [
-            { id: 'standard', label: 'Business Custom', priceRange: [1000, 2500], timelineRange: [3, 6], timelineUnit: 'weeks', deliverables: ['Architettura Scalabile', 'Integrazione CMS', 'Dashboard Admin', 'Test di Carico'] },
-            { id: 'pro', label: 'Enterprise / HoReCa', priceRange: [2500, 6000], timelineRange: [6, 12], timelineUnit: 'weeks', deliverables: ['Sistemi Complessi', 'Integrazioni ERP/CRM', 'Soluzioni Multicanale', 'Supporto Prioritario'] }
-          ],
-          options: {
-            visible: [
-              { id: 'api', label: 'Sviluppo API/Backend', priceDelta: [500, 1500], timelineDelta: [2, 4] },
-              { id: 'ecommerce', label: 'Motore E-commerce', priceDelta: [600, 2000], timelineDelta: [3, 5] }
-            ],
-            more: [
-              { id: 'booking', label: 'Sistema Prenotazioni', priceDelta: [400, 1200], timelineDelta: [2, 4] },
-              { id: 'menu', label: 'Menu Digitale Dinamico', priceDelta: [200, 600], timelineDelta: [1, 2] }
-            ]
-          }
+        timeline: {
+          asap: 'Il prima possibile',
+          weeks: '2–4 settimane',
+          flexible: 'Flessibile'
         }
-      ],
-      recommend: {
-        label: 'Non sei sicuro? Consigliami',
-        questions: {
-          q1: {
-            text: 'Qual è il tuo obiettivo principale?',
-            options: [
-              { label: 'Lancio veloce (Sito)', value: 'fast' },
-              { label: 'Soluzione gestita (Platform)', value: 'managed' },
-              { label: 'Sistema complesso (Custom)', value: 'complex' }
+      }
+    },
+    serviceDetail: {
+      industriesLabel: 'SETTORI (ESPERIENZA):',
+      turnkey: {
+        h1: 'SITO CHIAVI IN MANO',
+        subtitle: 'Un sito semplice sotto il tuo brand — veloce, ordinato, con lancio.',
+        cta: 'DESCRIVI PROGETTO',
+        sections: {
+          bestFor: {
+            title: 'IDEALE PER',
+            items: [
+              'Nuovi progetti che necessitano di una presenza online pulita',
+              'Piccole imprese che cercano lead',
+              'Lanci rapidi con un budget iniziale chiaro'
             ]
           },
-          q2: {
-            text: 'Qual è il tuo budget indicativo?',
-            options: [
-              { label: '€300 - €800', value: 'low' },
-              { label: '€800 - €2500', value: 'mid' },
-              { label: '€2500+', value: 'high' }
+          included: {
+            title: 'COSA È INCLUSO',
+            items: {
+              group1: [
+                'Layout UI pulito',
+                'Responsive (mobile/tablet/desktop)',
+                'Struttura SEO di base'
+              ],
+              group2: [
+                'Modulo di contatto',
+                'Deploy (messa online)',
+                'Consegna del progetto'
+              ]
+            }
+          },
+          packages: {
+            title: 'PACCHETTI',
+            items: [
+              {
+                name: 'STARTER',
+                price: '€300–€500',
+                timeline: '3–7 giorni',
+                includes: '1 pagina o piccolo sito, responsive, modulo contatti, deploy'
+              },
+              {
+                name: 'STANDARD',
+                price: '€500–€900',
+                timeline: '1–2 settimane',
+                includes: '5–10 pagine, sezioni riutilizzabili, setup analytics base, deploy'
+              },
+              {
+                name: 'PRO',
+                price: '€900–€1,500',
+                timeline: '2–4 settimane',
+                includes: 'UI kit personalizzato, 1–2 integrazioni, eventi analytics avanzati, ottimizzazione velocità'
+              }
+            ]
+          },
+          process: {
+            title: 'PROCESSO',
+            items: [
+              'Breve chiamata (obiettivi + scopo)',
+              'Design e struttura',
+              'Sviluppo e rifinitura',
+              'Lancio e consegna'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Fornite i contenuti?', a: 'Possiamo lavorare con i tuoi contenuti o aiutarti a strutturarli.' },
+              { q: 'Si può fare più velocemente?', a: 'A volte sì — dipende dallo scopo e dalla prontezza dei contenuti.' },
+              { q: 'Il sito funzionerà su mobile?', a: 'Sì, la responsività è inclusa di default.' },
+              { q: 'Posso aggiungere analytics?', a: 'Sì — il setup base è incluso nel pacchetto Standard e superiori.' },
+              { q: 'Fornite supporto post-lancio?', a: 'Sì — possiamo continuare a lavorare con un canone di supporto mensile.' }
             ]
           }
         }
       },
-      result: {
-        priceLabel: 'Prezzo stimato',
-        timelineLabel: 'Timeline',
-        deliverablesLabel: 'Cosa ottieni',
-        setupLabel: 'Setup',
-        monthlyLabel: 'Mensile',
-        disclaimer: 'La stima è indicativa. L\'ambito finale e il prezzo vengono confermati dopo una breve chiamata.',
-        cta: 'Invia Richiesta',
-        moreOptions: 'Altre opzioni'
+      platform: {
+        h1: 'PIATTAFORMA WEEGO (HOSTED DA NOI)',
+        subtitle: 'Lancio sulla nostra piattaforma — la configuriamo, manteniamo ed evolviamo insieme a te.',
+        cta: 'DESCRIVI PROGETTO',
+        sections: {
+          bestFor: {
+            title: 'IDEALE PER',
+            items: [
+              'Business che necessitano di più di un semplice sito',
+              'Team che cercano supporto e aggiornamenti costanti',
+              'Partenze rapide su una base solida e affidabile'
+            ]
+          },
+          included: {
+            title: 'COSA È INCLUSO',
+            items: [
+              'Design white-label (sotto il tuo brand)',
+              'Moduli attivati secondo le tue necessità',
+              'Integrazioni su richiesta',
+              'Hosting, deploy e manutenzione tecnica'
+            ]
+          },
+          startingFrom: {
+            title: 'A PARTIRE DA',
+            setup: 'Setup: €500–€900',
+            maintenance: 'Manutenzione: €100/mese'
+          },
+          process: {
+            title: 'PROCESSO',
+            items: [
+              'Breve chiamata (obiettivi + scopo)',
+              'Configurazione moduli + branding',
+              'Deploy + controlli finali',
+              'Supporto e miglioramenti continui'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'È un template?', a: 'È la nostra piattaforma base. La adattiamo al tuo brand e alle tue necessità.' },
+              { q: 'Posso richiedere nuove funzioni?', a: 'Sì — pianifichiamo miglioramenti come parte del supporto continuo.' },
+              { q: 'Chi ospita il sito?', a: 'Ci occupiamo noi dell\'hosting e della manutenzione tecnica.' },
+              { q: 'Posso integrare pagamenti/CRM/POS?', a: 'Sì — le integrazioni sono possibili in base al tuo stack.' },
+              { q: 'Posso migrare altrove in futuro?', a: 'Possiamo discutere opzioni di esportazione/transizione caso per caso.' }
+            ]
+          }
+        }
       },
-      form: {
-        name: 'Nome',
-        contact: 'Telegram / Email',
-        comment: 'Dettagli progetto (opzionale)',
-        submit: 'Invia Richiesta',
-        success: 'Dati ricevuti. Ti contatteremo a breve.'
+      horeca: {
+        h1: 'HORECA TEMPLATE SYSTEM',
+        subtitle: 'Sistema HoReCa basato su template — lancio rapido e adattamento al tuo brand.',
+        cta: 'DESCRIVI PROGETTO',
+        sections: {
+          bestFor: {
+            title: 'IDEALE PER',
+            items: [
+              'Ristoranti, caffè, piccole catene',
+              'Team che vogliono un template testato, non sviluppo da zero',
+              'Supporto costante dopo il lancio'
+            ]
+          },
+          included: {
+            title: 'COSA È INCLUSO',
+            items: [
+              'Base HoReCa pronta (template)',
+              'Branding + adattamento UI',
+              'Integrazioni opzionali (pagamenti/POS/CRM)',
+              'Hosting, deploy e manutenzione tecnica'
+            ]
+          },
+          startingFrom: {
+            title: 'A PARTIRE DA',
+            setup: 'Setup: €600–€1,000',
+            maintenance: 'Manutenzione: €100/mese'
+          },
+          process: {
+            title: 'PROCESSO',
+            items: [
+              'Breve chiamata (tuo flusso + priorità)',
+              'Adattamento brand/UI',
+              'Integrazioni (se necessarie) + deploy',
+              'Supporto e aggiornamenti'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'È uno sviluppo totalmente custom?', a: 'È un sistema basato su template. Adattiamo moduli e integrazioni alle tue necessità.' },
+              { q: 'Posso cambiare il design?', a: 'Sì — branding e adattamento UI sono inclusi.' },
+              { q: 'Posso integrare POS/CRM/pagamenti?', a: 'Sì — sono disponibili come integrazioni opzionali.' },
+              { q: 'Quanto velocemente possiamo lanciare?', a: 'Dipende da branding e integrazioni, solitamente entro i tempi di setup.' },
+              { q: 'Supportate il sistema?', a: 'Sì — la manutenzione mensile è inclusa come voce separata.' }
+            ]
+          }
+        }
       }
     },
     designSystem: {
@@ -1231,14 +1580,15 @@ export const CONTENT: Record<Language, TranslationStructure> = {
     nav: [
       { label: 'Arbeiten', href: '#work' },
       { label: 'Leistungen', href: '#services' },
-      { label: 'Studio', href: '#studio' },
+      { label: 'Brief', href: '/brief' },
     ],
     hero: {
-      title1: 'Wir Gehen',
-      title2: 'Weiter',
-      subtitle: 'Digitales Designstudio für brutalistische Erlebnisse und Marken, die anders sein wollen.',
-      ctaPrimary: 'Angebot anfordern',
-      ctaSecondary: 'Arbeiten ansehen'
+      title1: 'SCHNELLER STARTEN. PREMIUM WIRKEN.',
+      title2: 'STABIL BLEIBEN.',
+      subtitle: 'Wir konzipieren, entwickeln, deployen und betreuen Websites und gehostete Systeme.',
+      ctaPrimary: 'BRIEF STARTEN',
+      ctaSecondary: 'ARBEITEN ANSEHEN',
+      microLine: 'Design • Entwicklung • Deployment • Support'
     },
     trust: {
       stats: [
@@ -1256,157 +1606,299 @@ export const CONTENT: Record<Language, TranslationStructure> = {
       routes: [
         {
           id: 'turnkey',
-          title: 'Schlüsselfertige Websites',
-          oneLiner: 'Professionelle Präsenz in 3-7 Tagen.',
+          title: 'WEBSITE SCHLÜSSELFERTIG',
+          oneLiner: 'Schlüsselfertige Website — schnell, sauber, inkl. Launch.',
           bestFor: [
-            'Landingpages und Visitenkarten',
-            'Startups, die Geschwindigkeit brauchen',
-            'Optimierte Budgets (€300–€500)'
+            'Für eine einfache Website und Lead-Generierung',
+            'Wenn es so schnell wie möglich live gehen muss',
+            'Wenn du ein fixes Startbudget willst'
           ],
-          priceBadge: 'ab €300',
-          cta: 'Konfigurieren',
-          preset: { route: 'turnkey', package: 'standard' }
+          included: [
+            'Design + Umsetzung (responsive)',
+            'Kontaktformular + SEO-Grundstruktur',
+            'Deployment + Projektübergabe'
+          ],
+          priceBadge: 'Ab €300',
+          cta: 'MEHR ERFAHREN',
+          preset: { route: 'turnkey' }
         },
         {
           id: 'platform',
-          title: 'WEEGO Plattform',
-          oneLiner: 'Ihr digitales Ökosystem, von uns verwaltet.',
+          title: 'WEEGO PLATTFORM (VON UNS GEHOSTET)',
+          oneLiner: 'Start auf unserer Plattform. Wir deployen, warten und entwickeln sie weiter.',
           bestFor: [
-            'Wachsende Unternehmen',
-            'Keine technischen Kopfschmerzen',
-            'Support und Updates inklusive'
+            'Wenn du mehr als nur eine einfache Website brauchst',
+            'Wenn Support & Updates entscheidend sind',
+            'Wenn du auf einer soliden Basis starten willst'
           ],
-          priceBadge: '€400 + €40/Monat',
-          cta: 'Starten',
-          preset: { route: 'platform', package: 'standard' }
+          included: [
+            'White-Label Design (deine Marke)',
+            'Module + Integrationen nach Bedarf',
+            'Hosting, Deployment & technischer Support'
+          ],
+          priceBadge: 'Setup ab €500 + €100/Monat',
+          cta: 'MEHR ERFAHREN',
+          preset: { route: 'platform' }
         },
         {
-          id: 'custom',
-          title: 'Individuelle Entwicklung',
-          oneLiner: 'Komplexe Systeme für einzigartige Herausforderungen.',
+          id: 'horeca',
+          title: 'HORECA TEMPLATE SYSTEM',
+          oneLiner: 'Template-basiertes HoReCa-System — schnell live, an deine Marke angepasst.',
           bestFor: [
-            'E-Commerce und Web-Apps',
-            'Backend/API Integrationen',
-            'Skalierbare Enterprise-Lösungen'
+            'Restaurants, Cafés, kleine Ketten',
+            'Wenn du ein bewährtes Template willst, nicht alles von Null',
+            'Wenn du laufenden Support suchst'
           ],
-          cta: 'Berechnen',
-          preset: { route: 'custom', package: 'standard' }
+          included: [
+            'Fertige HoReCa-Basis (Template)',
+            'Branding + UI-Anpassung',
+            'Integrationen (Payments/POS/CRM) optional'
+          ],
+          priceBadge: 'Setup ab €600 + €100/Monat',
+          cta: 'MEHR ERFAHREN',
+          preset: { route: 'horeca' }
         }
       ],
+      customRequest: {
+        title: 'INDIVIDUELLE ANFRAGE',
+        oneLiner: 'Nicht sicher, was passt? Beschreibe dein Projekt — wir empfehlen den besten Weg.',
+        bullets: [
+          'Websites, Systeme, Integrationen',
+          'Jede Branche',
+          'Schnelle Rückmeldung'
+        ],
+        cta: 'PROJEKT BESCHREIBEN'
+      },
       capabilities: {
         heading: 'Außerdem helfen wir bei',
         showAllLabel: 'Alle Fähigkeiten anzeigen',
         items: [
-          { id: 'web', label: 'Web Engineering' },
-          { id: 'design', label: 'Brutalist Design' },
-          { id: 'backend', label: 'Backend Systems' },
-          { id: 'ecommerce', label: 'E-Commerce' },
-          { id: 'devops', label: 'DevOps & Cloud' },
-          { id: 'integrations', label: 'API Integrationen' },
-          { id: 'audit', label: 'Audit & Redesign' },
-          { id: 'support', label: 'SLA Support' }
+          { id: 'backend', label: 'Backend / API' },
+          { id: 'admin', label: 'Admin-Panels / Dashboards' },
+          { id: 'payments', label: 'Zahlungen & Webhooks' },
+          { id: 'pos', label: 'POS / CRM Integrationen' },
+          { id: 'devops', label: 'DevOps / Cloud' },
+          { id: 'mobile', label: 'Mobile / PWA' },
+          { id: 'bi', label: 'Data / BI Dashboards' },
+          { id: 'automation', label: 'Automatisierung / Integrationen' },
+          { id: 'performance', label: 'Performance-Optimierung' },
+          { id: 'seo', label: 'SEO Setup' },
+          { id: 'analytics', label: 'Analytics-Events' },
+          { id: 'migration', label: 'Inhaltsmigration' },
+          { id: 'notifications', label: 'Benachrichtigungen (Email/SMS)' },
+          { id: 'security', label: 'Sicherheit' },
+          { id: 'audit', label: 'Technisches Audit' },
+          { id: 'consulting', label: 'Architektur-Beratung' }
         ]
       },
       industries: {
         heading: 'Branchen (Erfahrung)',
-        experienceLabel: 'Erfahrung, keine Einheitslösung.',
+        experienceLabel: 'Echte Erfahrung, keine Einheitslösung.',
         items: [
-          { id: 'horeca', label: 'HoReCa', preset: { route: 'custom', package: 'pro', options: ['booking', 'menu'] } },
-          { id: 'tech', label: 'Tech & SaaS', preset: { route: 'custom', package: 'standard', options: ['api'] } },
-          { id: 'art', label: 'Art & Culture', preset: { route: 'turnkey', package: 'pro', options: ['branding'] } }
+          { id: 'horeca', label: 'HoReCa', preset: { route: 'platform', options: ['pos', 'payments', 'admin'] } },
+          { id: 'retail', label: 'Retail', preset: { route: 'custom', options: ['payments', 'automation'] } },
+          { id: 'services', label: 'Dienstleistungen', preset: { route: 'turnkey', options: ['seo', 'analytics'] } },
+          { id: 'ngo', label: 'NGOs', preset: { route: 'turnkey', options: ['multilang'] } }
         ]
       }
     },
-    estimator: {
-      heading: 'Kostenschätzer',
-      subheading: '[KOSTENBERECHNUNG]',
-      routes: [
-        {
-          id: 'turnkey',
-          label: 'Schlüsselfertige Websites',
-          packages: [
-            { id: 'standard', label: 'Standard Turnkey', priceRange: [300, 500], timelineRange: [3, 7], timelineUnit: 'days', deliverables: ['Brutalist Design', 'Responsive Build', 'SEO Basis', 'Kontaktformular', 'Hosting Setup'] },
-            { id: 'pro', label: 'Premium Turnkey', priceRange: [500, 800], timelineRange: [5, 10], timelineUnit: 'days', deliverables: ['Advanced Design', 'Basis Copywriting', 'Motion Animationen', 'Analytics Integration'] }
-          ],
-          options: {
-            visible: [
-              { id: 'branding', label: 'Visuelle Identität', priceDelta: [150, 400], timelineDelta: [2, 4] },
-              { id: 'copy', label: 'Prof. Copywriting', priceDelta: [100, 300], timelineDelta: [2, 3] }
-            ],
-            more: [
-              { id: 'multilang', label: 'Mehrsprachigkeit', priceDelta: [100, 250], timelineDelta: [1, 2] }
-            ]
-          }
+    brief: {
+      h1: 'PROJEKT-BRIEF',
+      subtitle: 'Erzähl uns, was du brauchst — wir antworten mit einem Plan und den nächsten Schritten.',
+      fields: {
+        route: 'RICHTUNG',
+        timeline: 'ZEITRAHMEN',
+        links: 'LINKS',
+        details: 'PROJEKTDETAILS',
+        contact: 'KONTAKT (TELEGRAM ODER EMAIL)'
+      },
+      submit: 'ANFRAGE SENDEN',
+      capabilitiesTitle: 'WAS WIR ABDECKEN',
+      showAllLabel: 'ALLE FÄHIGKEITEN ANZEIGEN',
+      showLessLabel: 'WENIGER ANZEIGEN',
+      options: {
+        routes: {
+          turnkey: 'Schlüsselfertige Website',
+          platform: 'WEEGO Plattform',
+          horeca: 'HoReCa System',
+          custom: 'Individuelle Anfrage'
         },
-        {
-          id: 'platform',
-          label: 'WEEGO Plattform',
-          packages: [
-            { id: 'standard', label: 'Plattform Setup', priceRange: [400, 400], timelineRange: [1, 1], timelineUnit: 'weeks', deliverables: ['Core Plattform Setup', 'Domain Konfiguration', 'Team Schulung', '24/7 Monitoring', 'Monatliche Updates'] }
-          ],
-          options: {
-            visible: [
-              { id: 'customization', label: 'UI Anpassung', priceDelta: [200, 500], timelineDelta: [1, 2] }
-            ],
-            more: []
-          }
-        },
-        {
-          id: 'custom',
-          label: 'Individuelle Entwicklung',
-          packages: [
-            { id: 'standard', label: 'Business Custom', priceRange: [1000, 2500], timelineRange: [3, 6], timelineUnit: 'weeks', deliverables: ['Skalierbare Architektur', 'CMS Integration', 'Admin Dashboard', 'Lasttests'] },
-            { id: 'pro', label: 'Enterprise / HoReCa', priceRange: [2500, 6000], timelineRange: [6, 12], timelineUnit: 'weeks', deliverables: ['Komplexe Systeme', 'ERP/CRM Integrationen', 'Multichannel Lösungen', 'Priorisierter Support'] }
-          ],
-          options: {
-            visible: [
-              { id: 'api', label: 'API/Backend Entwicklung', priceDelta: [500, 1500], timelineDelta: [2, 4] },
-              { id: 'ecommerce', label: 'E-Commerce Engine', priceDelta: [600, 2000], timelineDelta: [3, 5] }
-            ],
-            more: [
-              { id: 'booking', label: 'Buchungssystem', priceDelta: [400, 1200], timelineDelta: [2, 4] },
-              { id: 'menu', label: 'Dynamisches Digitales Menü', priceDelta: [200, 600], timelineDelta: [1, 2] }
-            ]
-          }
+        timeline: {
+          asap: 'So schnell wie möglich',
+          weeks: '2–4 Wochen',
+          flexible: 'Flexibel'
         }
-      ],
-      recommend: {
-        label: 'Empfehlung',
-        questions: {
-          q1: {
-            text: 'Was ist Ihr Hauptziel?',
-            options: [
-              { label: 'Schneller Start (Website)', value: 'fast' },
-              { label: 'Verwaltete Lösung (Plattform)', value: 'managed' },
-              { label: 'Komplexes System (Custom)', value: 'complex' }
+      }
+    },
+    serviceDetail: {
+      industriesLabel: 'BRANCHEN (ERFAHRUNG):',
+      turnkey: {
+        h1: 'WEBSITE SCHLÜSSELFERTIG',
+        subtitle: 'Eine einfache Website unter deiner Marke — schnell, sauber, inkl. Launch.',
+        cta: 'PROJEKT BESCHREIBEN',
+        sections: {
+          bestFor: {
+            title: 'IDEAL FÜR',
+            items: [
+              'Neue Projekte, die eine saubere Online-Präsenz benötigen',
+              'Kleine Unternehmen, die Leads suchen',
+              'Schnelle Launches mit klarem Startbudget'
             ]
           },
-          q2: {
-            text: 'Wie hoch ist Ihr ungefähres Budget?',
-            options: [
-              { label: '€300 - €800', value: 'low' },
-              { label: '€800 - €2500', value: 'mid' },
-              { label: '€2500+', value: 'high' }
+          included: {
+            title: 'WAS IST ENTHALTEN',
+            items: {
+              group1: [
+                'Sauberes UI-Layout',
+                'Responsive (Mobile/Tablet/Desktop)',
+                'SEO-Grundstruktur'
+              ],
+              group2: [
+                'Kontaktformular',
+                'Deployment (Live-Schaltung)',
+                'Projektübergabe'
+              ]
+            }
+          },
+          packages: {
+            title: 'PAKETE',
+            items: [
+              {
+                name: 'STARTER',
+                price: '€300–€500',
+                timeline: '3–7 Tage',
+                includes: '1 Seite oder kleine Website, responsive, Kontaktformular, Deployment'
+              },
+              {
+                name: 'STANDARD',
+                price: '€500–€900',
+                timeline: '1–2 Wochen',
+                includes: '5–10 Seiten, wiederverwendbare Sektionen, Basis-Analytics Setup, Deployment'
+              },
+              {
+                name: 'PRO',
+                price: '€900–€1,500',
+                timeline: '2–4 Wochen',
+                includes: 'Individuelles UI Kit, 1–2 Integrationen, erweiterte Analytics-Events, Speed-Optimierung'
+              }
+            ]
+          },
+          process: {
+            title: 'PROZESS',
+            items: [
+              'Kurzes Gespräch (Ziele + Umfang)',
+              'Design & Struktur',
+              'Entwicklung & Feinschliff',
+              'Launch & Übergabe'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Liefert ihr die Inhalte?', a: 'Wir können mit deinen Inhalten arbeiten oder dir helfen, sie zu strukturieren.' },
+              { q: 'Geht es auch schneller?', a: 'Manchmal ja — abhängig vom Umfang und der Bereitstellung der Inhalte.' },
+              { q: 'Funktioniert die Seite auf dem Handy?', a: 'Ja, Responsivität ist standardmäßig enthalten.' },
+              { q: 'Kann ich Analytics hinzufügen?', a: 'Ja — das Basis-Setup ist ab dem Standard-Paket enthalten.' },
+              { q: 'Bietet ihr Support nach dem Launch?', a: 'Ja — wir können die Zusammenarbeit im Rahmen eines monatlichen Supports fortsetzen.' }
             ]
           }
         }
       },
-      result: {
-        priceLabel: 'Geschätzter Preis',
-        timelineLabel: 'Zeitrahmen',
-        deliverablesLabel: 'Was Sie erhalten',
-        setupLabel: 'Setup-Gebühr',
-        monthlyLabel: 'Monatliche Gebühr',
-        disclaimer: 'Die Schätzung ist unverbindlich. Der endgültige Umfang und Preis werden nach einem kurzen Gespräch bestätigt.',
-        cta: 'Anfrage senden',
-        moreOptions: 'Mehr Optionen anzeigen'
+      platform: {
+        h1: 'WEEGO PLATTFORM (VON UNS GEHOSTET)',
+        subtitle: 'Start auf unserer Plattform — wir konfigurieren, warten und entwickeln sie gemeinsam mit dir weiter.',
+        cta: 'PROJEKT BESCHREIBEN',
+        sections: {
+          bestFor: {
+            title: 'IDEAL FÜR',
+            items: [
+              'Unternehmen, die mehr als nur eine einfache Website benötigen',
+              'Teams, die laufenden Support und Updates suchen',
+              'Schnelle Starts auf einer soliden und zuverlässigen Basis'
+            ]
+          },
+          included: {
+            title: 'WAS IST ENTHALTEN',
+            items: [
+              'White-Label Design (unter deiner Marke)',
+              'Module nach deinen Bedürfnissen aktiviert',
+              'Integrationen auf Anfrage',
+              'Hosting, Deployment & technische Wartung'
+            ]
+          },
+          startingFrom: {
+            title: 'PREISE AB',
+            setup: 'Setup: €500–€900',
+            maintenance: 'Wartung: €100/Monat'
+          },
+          process: {
+            title: 'PROZESS',
+            items: [
+              'Kurzes Gespräch (Ziele + Umfang)',
+              'Modul-Konfiguration + Branding',
+              'Deployment + finale Checks',
+              'Support & kontinuierliche Verbesserungen'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Ist das ein Template?', a: 'Es ist unsere Basis-Plattform. Wir passen sie an deine Marke und Bedürfnisse an.' },
+              { q: 'Kann ich neue Funktionen anfragen?', a: 'Ja — wir planen Verbesserungen als Teil des laufenden Supports.' },
+              { q: 'Wer hostet die Seite?', a: 'Wir kümmern uns um das Hosting und die technische Wartung.' },
+              { q: 'Kann ich Payments/CRM/POS integrieren?', a: 'Ja — Integrationen sind je nach Stack möglich.' },
+              { q: 'Kann ich später umziehen?', a: 'Wir können Export-/Übergabeoptionen im Einzelfall besprechen.' }
+            ]
+          }
+        }
       },
-      form: {
-        name: 'Name',
-        contact: 'Telegram / Email',
-        comment: 'Projektdetails (optional)',
-        submit: 'Anfrage senden',
-        success: 'Daten empfangen. Wir melden uns in Kürze.'
+      horeca: {
+        h1: 'HORECA TEMPLATE SYSTEM',
+        subtitle: 'HoReCa-System auf Template-Basis — schneller Launch und Anpassung an deine Marke.',
+        cta: 'PROJEKT BESCHREIBEN',
+        sections: {
+          bestFor: {
+            title: 'IDEAL FÜR',
+            items: [
+              'Restaurants, Cafés, kleine Ketten',
+              'Teams, die ein bewährtes Template wollen, keine Neuentwicklung',
+              'Laufender Support nach dem Launch'
+            ]
+          },
+          included: {
+            title: 'WAS IST ENTHALTEN',
+            items: [
+              'Fertige HoReCa-Basis (Template)',
+              'Branding + UI-Anpassung',
+              'Optionale Integrationen (Payments/POS/CRM)',
+              'Hosting, Deployment & technische Wartung'
+            ]
+          },
+          startingFrom: {
+            title: 'PREISE AB',
+            setup: 'Setup: €600–€1,000',
+            maintenance: 'Wartung: €100/Monat'
+          },
+          process: {
+            title: 'PROZESS',
+            items: [
+              'Kurzes Gespräch (dein Flow + Prioritäten)',
+              'Branding/UI-Anpassung',
+              'Integrationen (falls nötig) + Deployment',
+              'Support & Updates'
+            ]
+          },
+          faq: {
+            title: 'FAQ',
+            items: [
+              { q: 'Ist das eine komplett individuelle Entwicklung?', a: 'Es ist ein System auf Template-Basis. Wir passen Module und Integrationen an.' },
+              { q: 'Kann ich das Design ändern?', a: 'Ja — Branding und UI-Anpassung sind enthalten.' },
+              { q: 'Kann ich POS/CRM/Payments integrieren?', a: 'Ja — diese sind als optionale Integrationen verfügbar.' },
+              { q: 'Wie schnell können wir starten?', a: 'Abhängig von Branding und Integrationen, meist innerhalb der Setup-Zeit.' },
+              { q: 'Unterstützt ihr das System?', a: 'Ja — die monatliche Wartung ist als separater Punkt enthalten.' }
+            ]
+          }
+        }
       }
     },
     designSystem: {

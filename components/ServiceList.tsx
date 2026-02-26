@@ -1,18 +1,18 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useEstimator } from '../contexts/EstimatorContext';
-import { ArrowUpRight, Clock, Tag } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const ServiceList: React.FC = () => {
   const { t } = useLanguage();
-  const { openEstimator } = useEstimator();
   const [showAllCapabilities, setShowAllCapabilities] = useState(false);
 
   const routes = t.services.routes;
   const capabilities = t.services.capabilities;
   const industries = t.services.industries;
+  const customRequest = t.services.customRequest;
 
   return (
     <section 
@@ -35,106 +35,103 @@ export const ServiceList: React.FC = () => {
           </div>
         </div>
 
-        {/* 3 Routes Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-          {routes.map((route) => (
-            <motion.div 
+        {/* 3 Routes Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          {routes.map((route, idx) => (
+            <motion.div
               key={route.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group bg-weego-gray/10 border border-white/5 p-10 hover:bg-weego-gray/20 transition-all duration-500 flex flex-col h-full relative"
+              transition={{ delay: idx * 0.1 }}
+              className="group bg-weego-gray/10 border border-white/5 p-8 md:p-10 flex flex-col hover:border-weego-lime/30 transition-all duration-500"
             >
-              <div className="mb-8">
-                  <div className="flex justify-between items-start mb-6">
-                    <span className="font-mono text-weego-lime text-[10px] tracking-widest uppercase opacity-60">
-                      Route_0{routes.indexOf(route) + 1}
-                    </span>
-                    {route.priceBadge && (
-                      <span className="font-mono text-weego-lime text-[10px] tracking-widest border border-weego-lime/30 px-2 py-1">
-                        {route.priceBadge}
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="font-display text-4xl uppercase font-black tracking-tighter leading-tight mb-4 group-hover:text-weego-lime transition-colors">
-                      {route.title}
-                  </h3>
-                  <p className="font-sans text-gray-400 text-sm leading-relaxed mb-8">
-                      {route.oneLiner}
-                  </p>
+              <div className="flex justify-between items-start mb-8">
+                <span className="font-mono text-weego-lime text-[10px] tracking-widest uppercase opacity-60">
+                  Route_0{idx + 1}
+                </span>
+                {route.priceBadge && (
+                  <span className="font-mono text-weego-lime text-[10px] tracking-widest border border-weego-lime/30 px-3 py-1.5">
+                    {route.priceBadge}
+                  </span>
+                )}
+              </div>
+              
+              <h3 className="font-display text-3xl md:text-4xl uppercase font-black tracking-tighter leading-tight mb-4 group-hover:text-weego-lime transition-colors">
+                {route.title}
+              </h3>
+              
+              <p className="font-sans text-gray-400 text-sm leading-relaxed mb-8">
+                {route.oneLiner}
+              </p>
 
-                  <div className="space-y-3 mb-8">
-                    <span className="block font-mono text-[9px] text-gray-600 uppercase tracking-widest mb-2">Best for:</span>
-                    {route.bestFor.map((point, idx) => (
-                      <div key={idx} className="flex items-start gap-3 font-mono text-[11px] text-weego-white/80 leading-tight">
-                        <span className="text-weego-lime shrink-0">→</span>
-                        {point}
-                      </div>
-                    ))}
-                  </div>
+              <div className="space-y-8 mb-10 flex-grow">
+                <div className="space-y-3">
+                  <span className="block font-mono text-[9px] text-weego-lime uppercase tracking-widest opacity-60">Best for:</span>
+                  {route.bestFor.map((point, pIdx) => (
+                    <div key={pIdx} className="flex items-start gap-3 font-mono text-[11px] text-weego-white/80 leading-snug">
+                      <span className="text-weego-lime shrink-0">→</span>
+                      {point}
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-3">
+                  <span className="block font-mono text-[9px] text-weego-lime uppercase tracking-widest opacity-60">Included:</span>
+                  {route.included.map((point, pIdx) => (
+                    <div key={pIdx} className="flex items-start gap-3 font-mono text-[11px] text-weego-white/80 leading-snug">
+                      <span className="text-weego-lime shrink-0">✓</span>
+                      {point}
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="mt-auto pt-8 border-t border-white/5">
-                  <button 
-                    onClick={() => openEstimator(route.preset)}
-                    className="w-full py-5 bg-white/5 border border-white/10 text-white font-display font-black uppercase tracking-widest text-xs hover:bg-weego-lime hover:text-black hover:border-weego-lime transition-all flex items-center justify-center gap-2 group/btn"
-                  >
-                    {route.cta}
-                    <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                  </button>
-              </div>
+              <Link 
+                to={`/services/${route.id}`}
+                className="w-full px-8 py-5 bg-white/5 border border-white/10 text-white font-display font-black uppercase tracking-widest text-xs hover:bg-weego-lime hover:text-black hover:border-weego-lime transition-all flex items-center justify-center gap-3 group/btn"
+              >
+                {route.cta}
+                <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+              </Link>
             </motion.div>
           ))}
         </div>
 
-        {/* Capabilities & Industries */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Capabilities */}
-          <div className="bg-weego-gray/5 border border-white/5 p-10">
-            <h4 className="font-display text-2xl uppercase font-black text-white mb-8 tracking-tight">
-              {capabilities.heading}
-            </h4>
-            <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-              {(showAllCapabilities ? capabilities.items : capabilities.items.slice(0, 8)).map((cap) => (
-                <div key={cap.id} className="flex items-center gap-3 group">
-                  <div className="w-1.5 h-1.5 bg-weego-lime/30 group-hover:bg-weego-lime transition-colors" />
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors">
-                    {cap.label}
-                  </span>
+        {/* Custom Request Card - Full Width */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-weego-lime/10 to-transparent border border-weego-lime/20 p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12"
+        >
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-[1px] bg-weego-lime" />
+              <span className="font-mono text-weego-lime text-[10px] tracking-widest uppercase">Special Request</span>
+            </div>
+            <h3 className="font-display text-4xl md:text-5xl uppercase font-black tracking-tighter leading-tight mb-6">
+              {customRequest.title}
+            </h3>
+            <p className="font-sans text-gray-400 text-lg leading-relaxed mb-8">
+              {customRequest.oneLiner}
+            </p>
+            <div className="flex flex-wrap gap-x-8 gap-y-3">
+              {customRequest.bullets.map((bullet, idx) => (
+                <div key={idx} className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-gray-500">
+                  <div className="w-1 h-1 bg-weego-lime rounded-full" />
+                  {bullet}
                 </div>
               ))}
             </div>
-            {!showAllCapabilities && capabilities.items.length > 8 && (
-              <button 
-                onClick={() => setShowAllCapabilities(true)}
-                className="mt-10 font-mono text-[10px] text-weego-lime hover:underline uppercase tracking-widest"
-              >
-                {capabilities.showAllLabel}
-              </button>
-            )}
           </div>
-
-          {/* Industries */}
-          <div className="bg-weego-gray/5 border border-white/5 p-10">
-            <h4 className="font-display text-2xl uppercase font-black text-white mb-4 tracking-tight">
-              {industries.heading}
-            </h4>
-            <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-8">
-              {industries.experienceLabel}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {industries.items.map((ind) => (
-                <button
-                  key={ind.id}
-                  onClick={() => openEstimator(ind.preset)}
-                  className="px-6 py-3 bg-white/5 border border-white/10 text-white font-mono text-[10px] uppercase tracking-widest hover:bg-weego-lime hover:text-black hover:border-weego-lime transition-all"
-                >
-                  {ind.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+          <Link 
+            to="/brief?route=custom"
+            className="shrink-0 px-12 py-6 bg-white/5 border border-white/10 text-white font-display font-black uppercase tracking-widest text-sm hover:bg-weego-lime hover:text-black hover:border-weego-lime transition-all flex items-center justify-center gap-3 group/btn"
+          >
+            {customRequest.cta}
+            <ArrowUpRight size={18} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
