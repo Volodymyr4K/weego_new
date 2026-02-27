@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[100svh] flex flex-col justify-end pb-24 px-6 border-b border-white/10 overflow-hidden bg-weego-black perspective-[1000px]">
+    <section className="relative w-full min-h-[85svh] flex flex-col justify-end pb-12 px-6 border-b border-white/10 overflow-hidden bg-weego-black perspective-[1000px]">
       
       {/* 3D Moving Grid Background */}
       <div 
@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-[95vw] w-full mx-auto relative z-10">
         
         {/* Massive Title with Glitch Hover Effect */}
-        <h1 className="group font-display font-black text-[12vw] md:text-[10vw] leading-[0.85] tracking-tighter uppercase text-weego-white mix-blend-difference cursor-default transition-transform duration-300" style={{ transform: `translateX(${mousePos.x * 0.5}px)` }}>
+        <h1 className="group font-display font-black text-[10vw] md:text-[8vw] leading-[0.85] tracking-tighter uppercase text-weego-white mix-blend-difference cursor-default transition-transform duration-300" style={{ transform: `translateX(${mousePos.x * 0.5}px)` }}>
           <span className="block transition-transform duration-500 hover:text-transparent hover:text-stroke-white relative" style={{ WebkitTextStroke: '2px white' }}>
              <span className="absolute inset-0 text-weego-lime opacity-0 hover:opacity-100 hover:-translate-x-2 hover:translate-y-1 transition-all duration-100 mix-blend-hard-light" style={{ WebkitTextStroke: '0px' }}>{t.hero.title1}</span>
              {t.hero.title1}
@@ -72,18 +72,23 @@ export const Hero: React.FC = () => {
           </span>
         </h1>
         
-        <div className="mt-12 flex flex-col md:flex-row justify-between items-end gap-8 border-t border-white/20 pt-8 backdrop-blur-sm">
+        <div className="mt-8 flex flex-col md:flex-row justify-between items-end gap-8 border-t border-white/20 pt-8 backdrop-blur-sm">
           <div className="max-w-xl">
-             <p className="font-sans text-gray-400 text-lg md:text-2xl uppercase tracking-tight leading-snug mb-8">
+             <p className="font-sans text-gray-400 text-lg md:text-xl uppercase tracking-tight leading-snug mb-8">
                 {t.hero.subtitle}
              </p>
-             <div className="flex flex-wrap gap-4">
-                <Link to="/brief" className="px-8 py-4 bg-weego-lime text-black font-display font-black uppercase tracking-widest text-sm hover:bg-white transition-all hover:scale-105 active:scale-95">
-                    {t.hero.ctaPrimary}
-                </Link>
-                <a href="#work" className="px-8 py-4 border border-white/30 text-white font-display font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all hover:scale-105 active:scale-95">
-                    {t.hero.ctaSecondary}
-                </a>
+             <div className="flex flex-col gap-4">
+                <div className="flex flex-wrap gap-4">
+                    <Link to="/brief" className="px-8 py-4 bg-weego-lime text-black font-display font-black uppercase tracking-widest text-sm hover:bg-white transition-all hover:scale-105 active:scale-95">
+                        {t.hero.ctaPrimary}
+                    </Link>
+                    <a href="#work" className="px-8 py-4 border border-white/30 text-white font-display font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all hover:scale-105 active:scale-95">
+                        {t.hero.ctaSecondary}
+                    </a>
+                </div>
+                <p className="font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em]">
+                    {t.hero.microLine}
+                </p>
              </div>
           </div>
           
